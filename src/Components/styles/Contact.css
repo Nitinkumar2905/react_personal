@@ -1,0 +1,75 @@
+.social {
+  width: fit-content;
+  margin: 2rem 3rem;
+}
+
+.social-icon > li {
+  margin: 0rem 1rem;
+  list-style: none;
+}
+.social-icon > li > a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+.social-icon > li > a > i {
+  background-color: inherit;
+  font-size: 1.5rem;
+}
+
+@media (min-width: 375px) and (max-width:768px) {
+  .main-content{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    margin: 1rem auto;
+  }
+  .form-content {
+    width: 100%;
+    margin: 3rem 5rem 0rem 0rem;
+  }
+  .social-content {
+    width: 100%;
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  .main-content {
+    max-width: 90%;
+    margin: 1rem auto
+  }
+  .form-content {
+    width: 100%;
+    margin: 3rem 5rem 0rem 0rem;
+  }
+
+  .social-content {
+    width: 100%;
+    margin-left: 2rem;
+  }
+}
+@media (min-width: 1200px) {
+  .main-content {
+    display: flex;
+    width: 100%;
+    margin: 3rem 5rem 0rem 0rem;
+  }
+  .form-content {
+    width: 50%;
+    margin: 3rem 5rem 0rem 2rem;
+  }
+
+  .social-content {
+    width: 40%;
+    margin-top: 2rem;
+  }
+}
+
+.head-contact {
+  font-size: 2.3rem;
+}
+
+.submit-button {
+  width: fit-content;
+  margin: 0rem 0.4rem;
+}

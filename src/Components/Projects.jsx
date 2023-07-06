@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles/Projects.css";
 import item1 from "./images/search.gif";
+import { Link } from "react-router-dom";
 const Projects = (props) => {
   return (
     <>
@@ -169,13 +170,13 @@ const Projects = (props) => {
           <div className=" d-flex flex-row justify-items-center mt-5 fs-3  text-white">
             <span className={`text-${props.mode==="Light"?"dark":"light"} link-offset-2`}>
               Explore more projects ?  &nbsp; 
-              <button
+              <Link to="projects"
                 className={`fs-5 btn btn-outline-${
                   props.mode === "Light" ? "dark" : "light"
                 } my-4`}
               >
                  More Projects
-              </button>
+              </Link>
             </span>
           </div>
         </div>

@@ -18,16 +18,19 @@ const Navbar = (props) => {
         style={{ fontFamily: "sans-serif" }}
       >
         <div className="container-fluid">
-          <div className="mx-1 d-flex align-items-center">
+          <Link
+            to="/"
+            className="text-decoration-none mx-1 d-flex align-items-center"
+          >
             <img src={logo} alt="" />
             <span
-              className={`head-text mx-3 fs-5  text-${
+              className={`head-text mx-3 fs-5 text-${
                 props.mode === "Light" ? "dark" : "light"
               }`}
             >
               Nitin kumar
             </span>
-          </div>
+          </Link>
 
           <button
             className={`navbar-toggler border border-${
@@ -54,7 +57,7 @@ const Navbar = (props) => {
                       : "text-decoration-none"
                   } link-offset-2 link-underline-primary`}
                   aria-current="page"
-                  to="/home"
+                  to="/"
                 >
                   Home
                 </Link>
@@ -118,24 +121,28 @@ const Navbar = (props) => {
             </ul>
             <div className={`d-flex  align-items-center`}>
               <div onClick={props.toggleMode} style={{ cursor: "pointer" }}>
-                <img src={`${props.mode === "Dark" ? light : dark}`} alt="" />
+                <img
+                  src={`${props.mode === "Dark" ? light : dark}`}
+                  alt=""
+                  style={{ height: "35px", width: "35px" }}
+                />
               </div>
               {/*  */}
               <div className={`mx-2`}>
-                <button
+                <Link to="/login"
                   className={`me-1 btn btn-outline-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   Login
-                </button>
-                <button
+                </Link>
+                <Link to="/signUp"
                   className={`ms-1 btn btn-outline-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   SignUp
-                </button>
+                </Link>
               </div>
             </div>
           </div>

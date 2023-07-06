@@ -1,6 +1,7 @@
 import React from "react";
 import item1 from './images/1674617947228.gif'
 import './styles/Services.css'
+import { Link } from "react-router-dom";
 const Services = (props) => {
   return (
     <>
@@ -9,7 +10,7 @@ const Services = (props) => {
         style={{ marginTop: "4rem", fontFamily:'sans-serif' }}
       >
         <div>
-          <h1>Services</h1>
+          <h1 className={`text-${props.mode==="Dark"?"light":"dark"}`}>Services</h1>
           <div
             className={`text-${
               props.mode === "Light" ? "dark" : "light"
@@ -166,18 +167,19 @@ const Services = (props) => {
               </div>
             </div>
           </div>
-          {/* <div className=" d-flex flex-row justify-items-center mt-5 fs-3  text-white">
-            <span>
+          <div className=" d-flex flex-row justify-items-center mt-5 fs-3  text-white">
+            <span className={`text-${props.mode==="Dark"?"light":"dark"}`}>
               Explore more projects ? &nbsp;
-              <button
+              <Link
+              to="services"
                 className={`fs-5 btn btn-outline-${
                   props.mode === "Light" ? "dark" : "light"
                 } my-4`}
               >
-                More Projects
-              </button>
+                More Services
+              </Link>
             </span>
-          </div> */}
+          </div>
         </div>
       </div>
     </>

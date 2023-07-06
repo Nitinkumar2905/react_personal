@@ -1,0 +1,14 @@
+footer {
+  margin-bottom: 1rem;
+  width: 90%;
+  margin: 0rem auto;
+}
+.footer-content > div {
+  width: fit-content;
+  margin: 0.5rem auto;
+}
+
+.copyright {
+  font-size: 1.1rem;
+  font-weight: 500;
+}

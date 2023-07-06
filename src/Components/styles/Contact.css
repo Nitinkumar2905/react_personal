@@ -17,8 +17,8 @@
   font-size: 1.5rem;
 }
 
-@media (min-width: 375px) and (max-width:768px) {
-  .main-content{
+@media (min-width: 375px) and (max-width: 768px) {
+  .main-content {
     display: flex;
     flex-direction: column;
     width: 90%;
@@ -36,7 +36,7 @@
 @media (min-width: 769px) and (max-width: 1199px) {
   .main-content {
     max-width: 90%;
-    margin: 1rem auto
+    margin: 1rem auto;
   }
   .form-content {
     width: 100%;
@@ -56,7 +56,7 @@
   }
   .form-content {
     width: 50%;
-    margin: 3rem 5rem 0rem 2rem;
+    margin: 3rem 5rem 0rem 4rem;
   }
 
   .social-content {
@@ -72,4 +72,8 @@
 .submit-button {
   width: fit-content;
   margin: 0rem 0.4rem;
+}
+
+input {
+  outline: none;
 }

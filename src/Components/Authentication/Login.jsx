@@ -112,7 +112,7 @@ const Login = (props) => {
                 link-offset-2`}
                 to="/signUp"
               >
-                SignUp Now
+                SignUp
               </Link>
             </span>
           </div>

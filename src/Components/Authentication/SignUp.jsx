@@ -4,7 +4,7 @@ import "../styles/SignUp.css";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const host = "http://localhost:8000";
+  const host = "https://backend-one-steel.vercel.app";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",

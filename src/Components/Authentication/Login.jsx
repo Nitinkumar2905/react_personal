@@ -1,10 +1,9 @@
 import React, { useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 const Login = (props) => {
-  const location = useLocation();
-  const host = "http://localhost:8000";
+  const host = "https://backend-one-steel.vercel.app";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();

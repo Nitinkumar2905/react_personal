@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 
 const Login = (props) => {
-  const host = "https://backend-one-steel.vercel.app";
+  const host = "https://nitinkumar-backend.vercel.app";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -112,7 +112,7 @@ const Login = (props) => {
                 link-offset-2`}
                 to="/signUp"
               >
-                SignUp
+                SignUp Now
               </Link>
             </span>
           </div>

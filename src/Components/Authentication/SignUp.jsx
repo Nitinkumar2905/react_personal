@@ -4,7 +4,7 @@ import "../styles/SignUp.css";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const host = "https://nitinkumar-backend.vercel.app/";
+  const host = "https://nitinkumar-backend.vercel.app";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",

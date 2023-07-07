@@ -1,12 +1,35 @@
-import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import React, { useRef } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./styles/Navbar.css";
 import logo from "./images/sunset.jpg";
 import dark from "./images/dark mode.png";
 import light from "./images/light mode.png";
 
 const Navbar = (props) => {
-  const location = useLocation();
+  // const projects=()=>{
+  //   document.title = "Projects - Nitin k. | MERN Developer"
+  // }
+
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    localStorage.removeItem("token");
+    navigate("/");
+  };
+  // const ref = useRef(null);
+  let location = useLocation();
+  // const handleUserInfo = () => {
+  //   ref.current.click();
+  //   navigate("/getUser");
+  // };
+
+  const connect = (e) => {
+    e.preventDefault();
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+    } else {
+      navigate("/connect");
+    }
+  };
   return (
     <>
       <nav
@@ -51,11 +74,7 @@ const Navbar = (props) => {
                 <Link
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } ${
-                    location.pathname === "/home"
-                      ? "text-decoration-underline"
-                      : "text-decoration-none"
-                  } link-offset-2 link-underline-primary`}
+                  }`}
                   aria-current="page"
                   to="/"
                 >
@@ -64,13 +83,10 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
+                  // onClick={projects}
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } ${
-                    location.pathname === "/projects"
-                      ? "text-decoration-underline"
-                      : "text-decoration-none"
-                  } link-offset-2 link-underline-primary`}
+                  }`}
                   to="/projects"
                 >
                   Projects
@@ -80,11 +96,7 @@ const Navbar = (props) => {
                 <Link
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } ${
-                    location.pathname === "/services"
-                      ? "text-decoration-underline"
-                      : "text-decoration-none"
-                  } link-offset-2 link-underline-primary`}
+                  }`}
                   to="/services"
                 >
                   Services
@@ -94,11 +106,7 @@ const Navbar = (props) => {
                 <Link
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } ${
-                    location.pathname === "/contact"
-                      ? "text-decoration-underline"
-                      : "text-decoration-none"
-                  } link-offset-2 link-underline-primary`}
+                  }`}
                   to="/contact"
                 >
                   Contact
@@ -106,13 +114,10 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
+                  onClick={connect}
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } ${
-                    location.pathname === "/connect"
-                      ? "text-decoration-underline"
-                      : "text-decoration-none"
-                  } link-offset-2 link-underline-primary`}
+                  }`}
                   to="/connect"
                 >
                   Work With Me
@@ -128,22 +133,44 @@ const Navbar = (props) => {
                 />
               </div>
               {/*  */}
-              <div className={`mx-2`}>
-                <Link to="/login"
-                  className={`me-1 btn btn-outline-${
-                    props.mode === "Light" ? "dark" : "light"
-                  }`}
-                >
-                  Login
-                </Link>
-                <Link to="/signUp"
-                  className={`ms-1 btn btn-outline-${
-                    props.mode === "Light" ? "dark" : "light"
-                  }`}
-                >
-                  SignUp
-                </Link>
-              </div>
+              {!localStorage.getItem("token") ? (
+                <div className={`mx-2`}>
+                  <Link
+                    to="/login"
+                    className={`me-1 btn btn-outline-${
+                      props.mode === "Light" ? "dark" : "light"
+                    }`}
+                  >
+                    Login
+                  </Link>
+                  <Link
+                    to="/signUp"
+                    className={`ms-1 btn btn-outline-${
+                      props.mode === "Light" ? "dark" : "light"
+                    }`}
+                  >
+                    SignUp
+                  </Link>
+                </div>
+              ) : (
+                <div className="mx-2">
+                  <button
+                    onClick={handleLogOut}
+                    className={`ms-1 btn btn-outline-${
+                      props.mode === "Light" ? "dark" : "light"
+                    }`}
+                  >
+                    LogOut
+                  </button>
+                  <div
+                    // ref={ref}
+                    // onClick={handleUserInfo}
+                    to="/UserInfo"
+                    className="text-white mx-4 fw-semibold fs-6 text-decoration-none "
+                    style={{ cursor: "pointer" }}
+                  ></div>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -42,7 +42,11 @@ const SignUp = (props) => {
 
         if (json.success) {
           localStorage.setItem("token", json.authToken);
-          navigate(-1);
+          if (navigate(-1) === navigate("/login")) {
+            navigate("/");
+          } else {
+            navigate(-1);
+          }
           toast.success("Account created successfully!", {
             style: {
               borderRadius: "10px",

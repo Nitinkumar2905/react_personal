@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Projects.css";
-import item1 from "./images/search.gif";
+import item1 from '../Components/images/search.gif'
 import { Link } from "react-router-dom";
 const Projects = (props) => {
   return (

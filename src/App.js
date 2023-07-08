@@ -9,8 +9,10 @@ import Contact from "./Components/Routes/ContactSection";
 import Connect from "./Components/Routes/Connect";
 import Login from "./Components/Authentication/Login";
 import SignUp from './Components/Authentication/SignUp'
+import { Toaster } from "react-hot-toast";
 
 function App() {
+
   const [mode, setmode] = useState("Dark");
   // eslint-disable-next-line
   const toggleMode = () => {
@@ -25,6 +27,8 @@ function App() {
   return (
     <div className="mx-3 position-relative">
       <Router>
+        <div><Toaster position="top-center"
+          reverseOrder={false} /></div>
         <Navbar mode={mode} toggleMode={toggleMode} />
         <Routes>
           <Route exact index element={<Home mode={mode} />} />

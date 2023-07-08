@@ -4,6 +4,7 @@ import "./styles/Navbar.css";
 import logo from "./images/sunset.jpg";
 import dark from "./images/dark mode.png";
 import light from "./images/light mode.png";
+import { toast } from "react-hot-toast";
 
 const Navbar = (props) => {
   // const projects=()=>{
@@ -13,7 +14,14 @@ const Navbar = (props) => {
   const navigate = useNavigate();
   const handleLogOut = () => {
     localStorage.removeItem("token");
-    navigate("/");
+    navigate(-1);
+    toast.success("Logged Out!", {
+      style: {
+        borderRadius: "10px",
+        background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+        color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+      },
+    });
   };
   // const ref = useRef(null);
   let location = useLocation();
@@ -26,6 +34,13 @@ const Navbar = (props) => {
     e.preventDefault();
     if (!localStorage.getItem("token")) {
       navigate("/login");
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
     } else {
       navigate("/connect");
     }

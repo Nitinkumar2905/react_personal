@@ -1,10 +1,11 @@
 import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "../styles/SignUp.css";
+import { toast } from "react-hot-toast";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -15,7 +16,6 @@ const SignUp = (props) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const handleSignUp = async (e) => {
-    console.log("clicked");
     e.preventDefault();
     const { name, email, password, cpassword } = credentials;
 
@@ -42,17 +42,40 @@ const SignUp = (props) => {
 
         if (json.success) {
           localStorage.setItem("token", json.authToken);
-          navigate("/");
-          // props.showAlert("Account created successfully", "success");
+          navigate(-1);
+          toast.success("Account created successfully!", {
+            style: {
+              borderRadius: "10px",
+              background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+              color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+            },
+          });
         } else {
-          // props.showAlert("User already exists with this email", "danger");
+          toast.error("User already exists with this email!", {
+            style: {
+              borderRadius: "10px",
+              background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+              color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+            },
+          });
         }
       } catch (error) {
-        // props.showAlert("Failed to create user", "danger");
-        console.error(error);
+        toast.error("Failed to create Account due to some technical issue!", {
+          style: {
+            borderRadius: "10px",
+            background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+            color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+          },
+        });
       }
     } else {
-      // props.showAlert("Password must be the same", "warning");
+      toast.error("Password conflict!", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
     }
   };
 

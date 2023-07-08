@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import { toast } from "react-hot-toast";
 
 const Login = (props) => {
-  const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -25,10 +26,22 @@ const Login = (props) => {
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.authToken);
-      navigate("/");
-      // props.showAlert("Logged in successfully", "success");
+      navigate(-1);
+      toast.success("Successfully logged In!", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode==="Dark"?"#fff":"#333"}`,
+          color: `${props.mode==="Dark"?"#333":"#fff"}`,
+        },
+      });
     } else {
-      // props.showAlert("Invalid credentials", "danger");
+      toast.error("Successfully !",{
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode==="Dark"?"#fff":"#333"}`,
+          color: `${props.mode==="Dark"?"#333":"#fff"}`,
+        },
+      });
     }
   };
 

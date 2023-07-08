@@ -4,7 +4,7 @@ import "../styles/Login.css";
 import { toast } from "react-hot-toast";
 
 const Login = (props) => {
-  const host = "https://nitinkumar-backend-updated.vercel.app";
+  const host = "https://nitinkumar-backend.vercel.app";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();

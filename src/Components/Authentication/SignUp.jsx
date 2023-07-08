@@ -5,7 +5,7 @@ import { toast } from "react-hot-toast";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  const host = "https://nitinkumar-backend-updated.vercel.app";
+  const host = "https://nitinkumar-backend.vercel.app";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",

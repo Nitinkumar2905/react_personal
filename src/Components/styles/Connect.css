@@ -4,8 +4,8 @@
   margin: 2rem auto;
 }
 
-small{
-    font-size: .7rem;
+small {
+  font-size: 0.7rem;
 }
 
 @media (min-width: 375px) and (max-width: 991px) {
@@ -31,6 +31,7 @@ small{
   .item1 {
     width: 50%;
     max-height: 70vh;
+    margin-right: 1rem;
   }
 }
 
@@ -57,19 +58,20 @@ h3 {
   background-color: inherit;
 }
 
-@media (min-width: 769px) {
+@media (min-width: 375px) and (max-width: 768px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 10px;
     margin-top: 0.5rem;
   }
 }
-@media (min-width: 375px) and (max-width: 768px) {
+
+@media (min-width: 769px) {
   .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: auto;
     grid-gap: 10px;
     margin-top: 0.5rem;

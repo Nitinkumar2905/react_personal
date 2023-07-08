@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/Contact.css";
+import { toast } from "react-hot-toast";
 
 const Contact = (props) => {
   return (

@@ -1,15 +1,18 @@
-import React from 'react'
-import item1 from '../images/1674617947228.gif'
+import React from "react";
+import item1 from "../images/1674617947228.gif";
+import '../styles/Projects.css'
 const ProjectSection = (props) => {
   return (
     <>
       <div
-      id='projects'
+        id="projects"
         className={`mt-5 project-main text-center text-white`}
-        style={{ marginTop: "4rem" , fontFamily:'sans-serif'}}
+        style={{ marginTop: "4rem", fontFamily: "sans-serif" }}
       >
         <div>
-          <h1 className={`text-${props.mode==="Light"?"dark":"light"}`}>Projects</h1>
+          <h1 className={`text-${props.mode === "Light" ? "dark" : "light"}`}>
+            Projects
+          </h1>
           <div
             className={`text-${
               props.mode === "Light" ? "dark" : "light"
@@ -26,20 +29,22 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`mx-auto w-100 text-${
+                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   News-Monkey
                 </h4>
-                <h6
+                <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   NewsMonkey is a webapp application build using newsAPI and
                   react framework for providing the daily updates.
-                </h6>
+                </p>
                 <div>
                   <button
                     className={`my-2 me-2 btn btn-outline-${
@@ -48,13 +53,7 @@ const ProjectSection = (props) => {
                   >
                     Github
                   </button>
-                  <button
-                    className={`my-2 me-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
-                  >
-                    Source Code
-                  </button>
+
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
@@ -76,20 +75,22 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`mx-auto w-100 text-${
+                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   News-Monkey
                 </h4>
-                <h6
+                <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   NewsMonkey is a webapp application build using newsAPI and
                   react framework for providing the daily updates.
-                </h6>
+                </p>
                 <div>
                   <button
                     className={`my-2 me-2 btn btn-outline-${
@@ -98,13 +99,7 @@ const ProjectSection = (props) => {
                   >
                     Github
                   </button>
-                  <button
-                    className={`my-2 me-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
-                  >
-                    Source Code
-                  </button>
+
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
@@ -126,20 +121,22 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`mx-auto w-100 text-${
+                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   News-Monkey
                 </h4>
-                <h6
+                <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
                   NewsMonkey is a webapp application build using newsAPI and
                   react framework for providing the daily updates.
-                </h6>
+                </p>
                 <div>
                   <button
                     className={`my-2 me-2 btn btn-outline-${
@@ -148,13 +145,7 @@ const ProjectSection = (props) => {
                   >
                     Github
                   </button>
-                  <button
-                    className={`my-2 me-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
-                  >
-                    Source Code
-                  </button>
+
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
@@ -181,7 +172,7 @@ const ProjectSection = (props) => {
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default ProjectSection
+export default ProjectSection;

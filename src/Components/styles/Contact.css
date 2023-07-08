@@ -21,30 +21,32 @@
   .main-content {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 95%;
     margin: 1rem auto;
   }
   .form-content {
-    width: 100%;
+    width: 95%;
     margin: 3rem 5rem 0rem 0rem;
   }
   .social-content {
-    width: 100%;
+    margin-top: 1.4rem;
+    width: 95%;
     margin-left: 2rem;
   }
 }
 @media (min-width: 769px) and (max-width: 1199px) {
   .main-content {
-    max-width: 90%;
+    max-width: 70%;
     margin: 1rem auto;
   }
   .form-content {
-    width: 100%;
+    width: 70vw;
     margin: 3rem 5rem 0rem 0rem;
   }
 
   .social-content {
-    width: 100%;
+    margin-top: 1.5rem;
+    width: 70vw;
     margin-left: 2rem;
   }
 }
@@ -52,7 +54,7 @@
   .main-content {
     display: flex;
     width: 100%;
-    margin: 3rem 5rem 0rem 0rem;
+    margin: 1rem 5rem 0rem 0rem;
   }
   .form-content {
     width: 50%;

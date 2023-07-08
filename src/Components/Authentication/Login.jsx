@@ -1,15 +1,17 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
+import { toast } from "react-hot-toast";
 
 const Login = (props) => {
-  const host = "https://nitinkumar-backend.vercel.app";
+  const host = "https://nitinkumar-backend-updated.vercel.app";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
+    props.setProgress(0);
     const response = await fetch(`${host}/api/auth/login`, {
       method: "POST",
       headers: {
@@ -21,14 +23,33 @@ const Login = (props) => {
         password: credentials.password,
       }),
     });
+    props.setProgress(40);
 
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.authToken);
-      navigate("/");
-      // props.showAlert("Logged in successfully", "success");
+      if (!navigate(-1)) {
+        navigate("/");
+      } else {
+        navigate(-1);
+      }
+      props.setProgress(100);
+      console.log(props.setProgress, "used");
+      toast.success("Successfully logged In!", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
     } else {
-      // props.showAlert("Invalid credentials", "danger");
+      toast.error("Successfully !", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
     }
   };
 

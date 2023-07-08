@@ -1,6 +1,7 @@
 import React from "react";
-import item1 from "../images/search.gif";
-import '../styles/Services.css'
+import { Link } from "react-router-dom";
+// import item1 from "../images/search.gif";
+import "../styles/Services.css";
 
 const ServicesSection = (props) => {
   return (
@@ -9,7 +10,7 @@ const ServicesSection = (props) => {
         className={`service-main text-center text-white`}
         style={{ marginTop: "4rem", fontFamily: "sans-serif" }}
       >
-        <div>
+        <div style={{ minHeight: "67.5vh" }}>
           <h1 className={`text-${props.mode === "Dark" ? "light" : "dark"}`}>
             Services
           </h1>
@@ -25,7 +26,7 @@ const ServicesSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -35,32 +36,35 @@ const ServicesSection = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  MERN Development
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  MERN development is one of the most paid service in the field
+                  of development nowadays. And I am proficient in developing
+                  MERN stack projects.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
-                  </button>
+                    Hire Now
+                  </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
-                  </button>
+                    Related Projects
+                  </Link>
                 </div>
               </div>
             </div>
@@ -71,7 +75,7 @@ const ServicesSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -81,32 +85,35 @@ const ServicesSection = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  Frontend Devlopment
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  Sometimes frontend development can be really tricky because of
+                  little detailing in every tools and design , but don't worry I
+                  am here to help you with frontend projects.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
-                  </button>
+                    Hire Now
+                  </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
-                  </button>
+                    Related Projects
+                  </Link>
                 </div>
               </div>
             </div>
@@ -117,7 +124,7 @@ const ServicesSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -127,32 +134,34 @@ const ServicesSection = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  Backend Development
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  Backend development is backbone of any projects , website and
+                  can't really have any value without it.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
-                  </button>
+                    Hire Now
+                  </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
-                  </button>
+                    Related Projects
+                  </Link>
                 </div>
               </div>
             </div>

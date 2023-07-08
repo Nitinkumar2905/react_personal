@@ -1,6 +1,6 @@
 import React from "react";
 import "./styles/Projects.css";
-import item1 from "../Components/images/search.gif";
+// import item1 from "../Components/images/search.gif";
 import { Link } from "react-router-dom";
 const Projects = (props) => {
   return (
@@ -10,9 +10,7 @@ const Projects = (props) => {
         style={{ marginTop: "2rem", fontFamily: "sans-serif" }}
       >
         <div>
-          <h1
-            className={`mb-3 text-${props.mode === "Light" ? "dark" : "light"}`}
-          >
+          <h1 className={`text-${props.mode === "Light" ? "dark" : "light"}`}>
             Projects
           </h1>
           <div
@@ -22,12 +20,12 @@ const Projects = (props) => {
           >
             {/* item number 1 */}
             <div
-              className={`my-4 project-item ${
+              className={`my-3 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -68,12 +66,12 @@ const Projects = (props) => {
             </div>
             {/* item number 1 */}
             <div
-              className={`my-4 project-item ${
+              className={`my-3 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -83,15 +81,16 @@ const Projects = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  INotes
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  INotes is webapp application build using MERN stack tools
+                  which helps users to store daily notes on cloud within secure
+                  network and can access from anywhere.
                 </p>
                 <div className="pt-2">
                   <button
@@ -114,12 +113,12 @@ const Projects = (props) => {
             </div>
             {/* item number 1 */}
             <div
-              className={`my-4 project-item ${
+              className={`my-3 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -129,16 +128,20 @@ const Projects = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  Vision-Vault
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
-                </p>
+                  VisionVault is a multimedia content sharing and
+                  storage platform. It provides users with a platform to upload,
+                  organize, and share various types of visual content, such as
+                  images, artwork, photographs, videos, and more. Users can
+                  create collections, curate their content, and connect with
+                  others who share similar interests.
+                  </p>
                 <div className="pt-2">
                   <button
                     className={`my-2 me-1 btn btn-outline-${
@@ -159,7 +162,7 @@ const Projects = (props) => {
               </div>
             </div>
           </div>
-          <div className="d-flex flex-row justify-items-center mt-5 fs-3  text-white">
+          <div className="d-flex flex-row justify-items-center mt-5 fs-5  text-white">
             <span
               className={`text-${
                 props.mode === "Light" ? "dark" : "light"
@@ -170,7 +173,7 @@ const Projects = (props) => {
                 to="projects"
                 className={`btn btn-outline-${
                   props.mode === "Light" ? "dark" : "light"
-                } my-4`}
+                } my-1`}
               >
                 More Projects
               </Link>

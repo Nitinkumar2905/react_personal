@@ -63,7 +63,7 @@ h3 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    grid-gap: 10px;
+    grid-gap: 8px;
     margin-top: 0.5rem;
   }
 }

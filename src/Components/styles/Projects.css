@@ -1,13 +1,13 @@
-@media (min-width: 370px) and (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 768px) {
   .project-main {
     height: 100%;
-    width: 95%;
+    width: 90%;
     margin: 0px auto;
   }
 
   .projects {
     display: flex;
-    margin-top: 3rem;
+    margin-top: 2rem;
     flex-direction: column;
     /* border: 1px solid red; */
   }
@@ -34,7 +34,7 @@
     display: flex;
     width: 90%;
     flex-direction: row;
-    margin: 3rem auto;
+    margin: 2rem auto;
     justify-content: space-evenly;
     /* border: 1px solid red; */
   }
@@ -71,7 +71,7 @@
     display: flex;
     flex-direction: row;
     width: 90%;
-    margin: 3rem auto;
+    margin: 2rem auto;
     /* border: 1px solid red; */
     justify-content: space-evenly;
   }

@@ -35,3 +35,42 @@ img {
   }
   
 }
+
+@media (max-width:991px) {
+  .user-details{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  .user-details button{
+    text-align: start;
+  }
+  
+  .user-button{
+    display: flex;
+    flex-direction: column;
+  }
+
+  .user-button > div{
+    margin-bottom: 1rem;
+  }
+}
+
+@media (min-width:992px) {
+  .user-details{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  
+  .user-details button{
+    text-align: center;
+  }
+  
+  .user-button{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+}

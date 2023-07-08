@@ -17,11 +17,11 @@
   font-size: 1.5rem;
 }
 
-@media (min-width: 375px) and (max-width: 768px) {
+@media (min-width: 360px) and (max-width: 768px) {
   .main-content {
     display: flex;
     flex-direction: column;
-    width: 95%;
+    width: 90%;
     margin: 1rem auto;
   }
   .form-content {
@@ -29,7 +29,7 @@
     margin: 3rem 5rem 0rem 0rem;
   }
   .social-content {
-    margin-top: 1.4rem;
+    margin-top: 1.5rem;
     width: 95%;
     margin-left: 2rem;
   }

@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 const SignUp = (props) => {
   const navigate = useNavigate();
   const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -42,7 +43,7 @@ const SignUp = (props) => {
 
         if (json.success) {
           localStorage.setItem("token", json.authToken);
-          if (navigate(-1) === "/login"){
+          if (navigate(-1) === "/login" && "/connect"){
             navigate("/");
           } else {
             navigate(-1);
@@ -55,7 +56,7 @@ const SignUp = (props) => {
             },
           });
         } else {
-          toast.error("User already exists with this email!", {
+          toast.error("Cannot process right now, Sorry!", {
             style: {
               borderRadius: "10px",
               background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -64,7 +65,7 @@ const SignUp = (props) => {
           });
         }
       } catch (error) {
-        toast.error("Failed to create Account due to some technical issue!", {
+        toast.error("User already exists with this email", {
           style: {
             borderRadius: "10px",
             background: `${props.mode === "Dark" ? "#fff" : "#333"}`,

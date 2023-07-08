@@ -10,10 +10,15 @@ const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
   const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);
-    navigate(-1);
+    if (!navigate(-1) === "/connect") {
+      navigate("/");
+    } else {
+      navigate(-1);
+    }
     toast.success("Logged Out!", {
       style: {
         borderRadius: "10px",
@@ -161,11 +166,11 @@ const Navbar = (props) => {
                   }`}
                   to="/connect"
                 >
-                  Work With Me
+                  Connect
                 </Link>
               </li>
             </ul>
-            <div className={`d-flex  align-items-center`}>
+            <div className={`user-button`}>
               <div onClick={props.toggleMode} style={{ cursor: "pointer" }}>
                 <img
                   src={`${props.mode === "Dark" ? light : dark}`}
@@ -194,30 +199,36 @@ const Navbar = (props) => {
                   </Link>
                 </div>
               ) : (
-                <div className="mx-2 d-flex align-items-center">
+                <div className="mx-2 user-details">
                   <div
                     onClick={handleUserInfo}
                     to="/UserInfo"
                     className={`mx-2 text-${
                       props.mode === "Dark" ? "light" : "dark"
                     } text-decoration-none `}
-                    style={{ cursor: "pointer" }}
+                    style={{ cursor: "default" }}
                   >
-                    {localStorage.getItem("token") ? (
+                    {localStorage.getItem("token") && user.email ? (
                       <span
-                        className={`fs-4 text-${
+                        className={`text-${
                           props.mode === "Dark" ? "success" : "primary"
                         }`}
                       >
                         {user.email}
                       </span>
                     ) : (
-                      <span>Error</span>
+                      <span
+                        className={`text-${
+                          props.mode === "Dark" ? "light" : "dark"
+                        }`}
+                      >
+                        user email
+                      </span>
                     )}
                   </div>
                   <button
                     onClick={handleLogOut}
-                    className={`ms-1 btn btn-outline-${
+                    className={`ms-1 my-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >

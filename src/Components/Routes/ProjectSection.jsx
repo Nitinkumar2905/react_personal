@@ -1,15 +1,15 @@
 import React from "react";
 import item1 from "../images/1674617947228.gif";
-import '../styles/Projects.css'
+import "../styles/Projects.css";
+import { Link } from "react-router-dom";
 const ProjectSection = (props) => {
   return (
     <>
       <div
-        id="projects"
-        className={`mt-5 project-main text-center text-white`}
+        className={`project-main text-center text-white`}
         style={{ marginTop: "4rem", fontFamily: "sans-serif" }}
       >
-        <div>
+        <div style={{ minHeight: "67.5vh" }}>
           <h1 className={`text-${props.mode === "Light" ? "dark" : "light"}`}>
             Projects
           </h1>
@@ -25,7 +25,7 @@ const ProjectSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -71,7 +71,7 @@ const ProjectSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -81,15 +81,16 @@ const ProjectSection = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  INotes
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  INotes is webapp application build using MERN stack tools
+                  which helps users to store daily notes on cloud within secure
+                  network and can access from anywhere.
                 </p>
                 <div>
                   <button
@@ -117,7 +118,7 @@ const ProjectSection = (props) => {
               } rounded`}
             >
               <span>
-                <img className={`item-img`} src={item1} alt="" />
+                {/* <img className={`item-img`} src={item1} alt="" /> */}
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
@@ -127,24 +128,29 @@ const ProjectSection = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  VisionVault
                 </h4>
                 <p
                   className={`text-start text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  NewsMonkey is a webapp application build using newsAPI and
-                  react framework for providing the daily updates.
+                  VisionVault is a multimedia content sharing and storage
+                  platform. It provides users with a platform to upload,
+                  organize, and share various types of visual content, such as
+                  images, artwork, photographs, videos, and more. Users can
+                  create collections, curate their content, and connect with
+                  others who share similar interests.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="/"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${

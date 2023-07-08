@@ -15,7 +15,7 @@ img {
 .navbar {
   position: sticky;
   background-color: rgb(17 24 39);
-  top: 1rem;
+  top: 0rem;
   z-index: 100;
   padding: 0.8rem;
 }
@@ -24,7 +24,6 @@ img {
   .navbar ul li:hover {
     translate: 2px 0px;
     transition-duration: 200ms;
-    text-decoration: underline;
   }
   
 }
@@ -33,7 +32,6 @@ img {
   .navbar ul li:hover {
     translate: 0px -2px;
     transition-duration: 200ms;
-    text-decoration: underline;
   }
   
 }

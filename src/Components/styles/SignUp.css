@@ -1,32 +1,39 @@
 * {
-    font-family: sans-serif;
+  font-family: sans-serif;
+}
+
+.SignUp-box {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  align-items: center;
+}
+
+@media (min-width: 375px) and (max-width: 991px) {
+  .SignUp-form {
+    /* width: 25rem; */
+    margin: 1rem auto;
   }
-  
-  .SignUp-box {
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    max-height: 100%;
-    align-items: center;
-  }
-  
+}
+@media (min-width: 992px) {
   .SignUp-form {
     width: 25rem;
     margin: 1rem auto;
   }
-  
-  .SignUp-item {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    width: 100%;
-    margin: .5rem auto;
-  }
-  
-  .SignUp-item input {
-    margin-top: .5rem;
-    width: 100%;
-    background-color: inherit;
-    outline: none;
-  }
-  
+}
+
+.SignUp-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0.5rem auto;
+}
+
+.SignUp-item input {
+  margin-top: 0.5rem;
+  width: 100%;
+  background-color: inherit;
+  outline: none;
+}

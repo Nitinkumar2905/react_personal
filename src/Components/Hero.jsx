@@ -7,7 +7,7 @@ const Hero = (props) => {
     <>
       <div
         className={`d-flex align-items-center justify-content-center`}
-        style={{ marginTop: "6rem", fontFamily: "sans-serif" }}
+        style={{ marginTop: "5rem", fontFamily: "sans-serif" }}
       >
         <div className={`hero-content`}>
           <p

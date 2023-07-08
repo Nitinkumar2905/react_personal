@@ -1,7 +1,5 @@
 footer {
-  margin-bottom: 1rem;
-  width: 90%;
-  margin: 0rem auto;
+  margin: 1rem auto;
 }
 .footer-content > div {
   width: fit-content;
@@ -9,6 +7,6 @@ footer {
 }
 
 .copyright {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 500;
 }

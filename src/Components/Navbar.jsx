@@ -1,5 +1,5 @@
-import React, { useRef } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "./styles/Navbar.css";
 import logo from "./images/sunset.jpg";
 import dark from "./images/dark mode.png";
@@ -7,13 +7,12 @@ import light from "./images/light mode.png";
 import { toast } from "react-hot-toast";
 
 const Navbar = (props) => {
-  // const projects=()=>{
-  //   document.title = "Projects - Nitin k. | MERN Developer"
-  // }
-
   const navigate = useNavigate();
+  const [user, setUser] = useState({ name: "", email: "" });
+  const host = "https://nitinkumar-backend-updated.vercel.app";
+
   const handleLogOut = () => {
-    localStorage.removeItem("token");
+    props.setProgress(0);
     navigate(-1);
     toast.success("Logged Out!", {
       style: {
@@ -22,18 +21,16 @@ const Navbar = (props) => {
         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
       },
     });
+    localStorage.removeItem("token");
+    props.setProgress(100);
   };
-  // const ref = useRef(null);
-  let location = useLocation();
-  // const handleUserInfo = () => {
-  //   ref.current.click();
-  //   navigate("/getUser");
-  // };
 
   const connect = (e) => {
     e.preventDefault();
+    props.setProgress(0);
     if (!localStorage.getItem("token")) {
       navigate("/login");
+      props.setProgress(100);
       toast("Please login to continue", "warning", {
         style: {
           borderRadius: "10px",
@@ -42,15 +39,45 @@ const Navbar = (props) => {
         },
       });
     } else {
+      props.setProgress(100);
       navigate("/connect");
     }
   };
+
+  useEffect(() => {
+    handleUserInfo();
+    // eslint-disable-next-line
+  }, []);
+
+  const handleUserInfo = async () => {
+    if (localStorage.getItem("token")) {
+      const response = await fetch(`${host}/api/auth/getUser`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application",
+          "auth-token": localStorage.getItem("token"),
+        },
+      });
+
+      if (response.ok) {
+        const json = await response.json();
+        setUser({
+          name: json.user.name,
+          email: json.user.email,
+          userId: json.user._id,
+        });
+      } else {
+        throw new Error("Failed to fetch user details");
+      }
+    }
+  };
+
   return (
     <>
       <nav
-        className={`shadow-${
+        className={`pt-4 shadow-${
           props.mode === "Light" ? "lg" : "nav"
-        } my-3 rounded navbar navbar-expand-lg bg-${
+        } navbar navbar-expand-lg bg-${
           props.mode === "Dark" ? "dark-emphasis" : "light"
         } navbar-${props.mode}`}
         style={{ fontFamily: "sans-serif" }}
@@ -98,7 +125,6 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  // onClick={projects}
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
                   }`}
@@ -168,7 +194,27 @@ const Navbar = (props) => {
                   </Link>
                 </div>
               ) : (
-                <div className="mx-2">
+                <div className="mx-2 d-flex align-items-center">
+                  <div
+                    onClick={handleUserInfo}
+                    to="/UserInfo"
+                    className={`mx-2 text-${
+                      props.mode === "Dark" ? "light" : "dark"
+                    } text-decoration-none `}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {localStorage.getItem("token") ? (
+                      <span
+                        className={`fs-4 text-${
+                          props.mode === "Dark" ? "success" : "primary"
+                        }`}
+                      >
+                        {user.email}
+                      </span>
+                    ) : (
+                      <span>Error</span>
+                    )}
+                  </div>
                   <button
                     onClick={handleLogOut}
                     className={`ms-1 btn btn-outline-${
@@ -177,13 +223,6 @@ const Navbar = (props) => {
                   >
                     LogOut
                   </button>
-                  <div
-                    // ref={ref}
-                    // onClick={handleUserInfo}
-                    to="/UserInfo"
-                    className="text-white mx-4 fw-semibold fs-6 text-decoration-none "
-                    style={{ cursor: "pointer" }}
-                  ></div>
                 </div>
               )}
             </div>

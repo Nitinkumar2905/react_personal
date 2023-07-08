@@ -3,16 +3,24 @@
 }
 
 .login-box {
-  margin-top: 3rem;
+  margin-top: 2.5rem;
   display: flex;
   flex-direction: column;
-  height: 70vh;
+  height: 71vh;
   align-items: center;
 }
 
-.login-form {
-  width: 25rem;
-  margin: 2rem auto;
+@media (min-width: 375px) and (max-width: 991px) {
+  .login-form {
+    /* width: 25rem; */
+    margin: 1rem auto;
+  }
+}
+@media (min-width: 992px) {
+  .login-form {
+    width: 25rem;
+    margin: 1rem auto;
+  }
 }
 
 .login-item {

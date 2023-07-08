@@ -1,46 +1,4 @@
-/* .project-main {
-  height: 100vh;
-  width: 100%;
-} */
-
-/* .projects {
-  display: flex;
-  margin-top: 3rem;
-  flex-direction: row;
-  justify-content: space-around;
-} */
-/* .project-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 0rem 2rem;
-  padding-bottom: 1rem;
-  width: 100%;
-} */
-
-@media (min-width: 375px) {
-  .project-main {
-    height: 100%;
-    width: 100%;
-  }
-
-  .projects {
-    display: flex;
-    margin-top: 3rem;
-    flex-direction: column;
-    /* border: 1px solid red; */
-  }
-
-  .project-item {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem 0rem;
-    padding-bottom: 1rem;
-    width: 100%;
-  }
-}
-@media (min-width: 376px) and (max-width: 768px) {
+@media (min-width: 370px) and (max-width: 768px) {
   .project-main {
     height: 100%;
     width: 95%;
@@ -61,7 +19,7 @@
     margin: 1rem 0rem;
     padding: 0.3rem 0.7rem;
     padding-bottom: 1rem;
-    width: 100%;
+    /* width: 80%; */
   }
 }
 
@@ -74,8 +32,10 @@
 
   .projects {
     display: flex;
-    margin-top: 3rem;
+    width: 90%;
     flex-direction: row;
+    margin: 3rem auto;
+    justify-content: space-evenly;
     /* border: 1px solid red; */
   }
 
@@ -83,24 +43,24 @@
     display: none;
     flex-direction: column;
     align-items: center;
-    margin: 1rem 0rem;
+    margin: 1rem 1rem;
     padding: 0.3rem 0.7rem;
     padding-bottom: 1rem;
-    width: 100%;
+    width: 90%;
   }
 
-  .project-item:nth-child(-n+2){
+  .project-item:nth-child(-n + 2) {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem 0.5rem;
+    margin: 1rem 1rem;
     padding: 0.3rem 0.7rem;
     padding-bottom: 1rem;
-    width: 95%;
+    width: 90%;
   }
 }
 
-@media (min-width: 1090px){
+@media (min-width: 1090px) {
   .project-main {
     height: 100%;
     width: 100%;
@@ -109,33 +69,33 @@
 
   .projects {
     display: flex;
-    margin-top: 3rem;
     flex-direction: row;
-    width: 100%;
+    width: 90%;
+    margin: 3rem auto;
     /* border: 1px solid red; */
-    justify-content: space-around;
+    justify-content: space-evenly;
   }
   @media (max-width: 1090px) {
     .project-item:last-child {
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-left: .5rem;
-      margin-right: .5rem;
+      margin-left: 1rem;
+      margin-right: 1rem;
       padding: 0.3rem 0.7rem;
       padding-bottom: 1rem;
-      width: 100%;
+      width: 90%;
     }
   }
 
-  .project-item{
+  .project-item {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 1rem 0.5rem;
+    margin: 1rem 1rem;
     padding: 0.3rem 0.7rem;
     padding-bottom: 1rem;
-    width: 95%;
+    width: 90%;
   }
 }
 

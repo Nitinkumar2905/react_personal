@@ -42,7 +42,7 @@ const SignUp = (props) => {
 
         if (json.success) {
           localStorage.setItem("token", json.authToken);
-          if (navigate && navigate(-1) === "/login"){
+          if (navigate(-1) === "/login"){
             navigate("/");
           } else {
             navigate(-1);

@@ -43,7 +43,8 @@ const Login = (props) => {
         },
       });
     } else {
-      toast.error("Successfully !", {
+      props.setProgress(0)
+      toast.error("Invalid credentials !", {
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,

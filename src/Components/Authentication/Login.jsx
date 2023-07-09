@@ -34,10 +34,10 @@ const Login = (props) => {
       } else {
         navigate(-1);
       }
+
       props.setProgress(100);
       console.log(props.setProgress, "used");
       toast.success("Successfully logged In!", {
-        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -45,9 +45,8 @@ const Login = (props) => {
         },
       });
     } else {
-      props.setProgress(0)
+      props.setProgress(0);
       toast.error("Invalid credentials !", {
-        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,

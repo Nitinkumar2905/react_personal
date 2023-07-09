@@ -9,16 +9,12 @@ import { toast } from "react-hot-toast";
 const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);
-    if (!navigate(-1) === "/connect") {
-      navigate("/");
-    } else {
-      navigate(-1);
-    }
+    navigate("/")
     toast.success("Logged Out!", {
       style: {
         borderRadius: "10px",
@@ -27,6 +23,7 @@ const Navbar = (props) => {
       },
     });
     localStorage.removeItem("token");
+
     props.setProgress(100);
   };
 
@@ -35,6 +32,9 @@ const Navbar = (props) => {
     props.setProgress(0);
     if (!localStorage.getItem("token")) {
       navigate("/login");
+      // if(localStorage.getItem("token")){
+      //   navigate("/connect")
+      // }
       props.setProgress(100);
       toast("Please login to continue", "warning", {
         style: {
@@ -150,6 +150,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
+                onClick={connect}
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
                   }`}

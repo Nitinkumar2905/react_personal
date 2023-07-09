@@ -1,5 +1,5 @@
 import React from "react";
-// import item1 from "./images/search.gif";
+import item1 from "./images/search.gif";
 import "./styles/Services.css";
 import { Link } from "react-router-dom";
 const Services = (props) => {

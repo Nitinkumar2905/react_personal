@@ -29,32 +29,21 @@ const Login = (props) => {
     const json = await response.json();
     if (json.success) {
       localStorage.setItem("token", json.authToken);
-      if (response.status === 208) {
-        // user is already logged in with this email
-        props.setProgress(0);
-        toast.error("User is already logged in with this email!", {
-          style: {
-            borderRadius: "10px",
-            background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-            color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-          },
-        });
+      if (!navigate(-1)) {
+        navigate("/");
       } else {
-        if (!navigate(-1)) {
-          navigate("/");
-        } else {
-          navigate(-1);
-        }
-
-        props.setProgress(100);
-        toast.success("Successfully logged In!", {
-          style: {
-            borderRadius: "10px",
-            background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-            color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-          },
-        });
+        navigate(-1);
       }
+
+      props.setProgress(100);
+      console.log(props.setProgress, "used");
+      toast.success("Successfully logged In!", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
     } else {
       props.setProgress(0);
       toast.error("Invalid credentials !", {

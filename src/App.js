@@ -30,7 +30,7 @@ function App() {
   return (
     <div className="position-relative">
       <Router>
-        <div><Toaster position="top-center"
+        <div><Toaster position="top-center" toastOptions={{duration:1000}}
           reverseOrder={false} /></div>
         <LoadingBar
           height={3}

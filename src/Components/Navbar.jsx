@@ -9,13 +9,14 @@ import { toast } from "react-hot-toast";
 const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);
     navigate("/")
     toast.success("Logged Out!", {
+      duration: 2000,
       style: {
         borderRadius: "10px",
         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -37,6 +38,7 @@ const Navbar = (props) => {
       // }
       props.setProgress(100);
       toast("Please login to continue", "warning", {
+        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,

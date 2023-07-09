@@ -4,8 +4,8 @@ import "../styles/Login.css";
 import { toast } from "react-hot-toast";
 
 const Login = (props) => {
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -37,6 +37,7 @@ const Login = (props) => {
       props.setProgress(100);
       console.log(props.setProgress, "used");
       toast.success("Successfully logged In!", {
+        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -46,6 +47,7 @@ const Login = (props) => {
     } else {
       props.setProgress(0)
       toast.error("Invalid credentials !", {
+        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,

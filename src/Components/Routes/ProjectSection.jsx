@@ -1,5 +1,5 @@
 import React from "react";
-import item1 from "../images/1674617947228.gif";
+// import item1 from "../images/1674617947228.gif";
 import "../styles/Projects.css";
 import { Link } from "react-router-dom";
 const ProjectSection = (props) => {

@@ -14,9 +14,8 @@ const Navbar = (props) => {
 
   const handleLogOut = () => {
     props.setProgress(0);
-    navigate("/")
+    navigate("/");
     toast.success("Logged Out!", {
-      duration: 2000,
       style: {
         borderRadius: "10px",
         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -38,7 +37,6 @@ const Navbar = (props) => {
       // }
       props.setProgress(100);
       toast("Please login to continue", "warning", {
-        duration: 2000,
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
@@ -48,6 +46,27 @@ const Navbar = (props) => {
     } else {
       props.setProgress(100);
       navigate("/connect");
+    }
+  };
+  const contact = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      // if(localStorage.getItem("token")){
+      //   navigate("/connect")
+      // }
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/contact");
     }
   };
 
@@ -96,7 +115,7 @@ const Navbar = (props) => {
           >
             <img src={logo} alt="" />
             <span
-              className={`head-text mx-3 fs-5 text-${
+              className={`head-text mx-3 text-${
                 props.mode === "Light" ? "dark" : "light"
               }`}
             >
@@ -152,7 +171,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                onClick={connect}
+                  onClick={contact}
                   className={`mx-1 nav-link text-${
                     props.mode === "Dark" ? "light" : "dark"
                   }`}
@@ -225,7 +244,7 @@ const Navbar = (props) => {
                           props.mode === "Dark" ? "light" : "dark"
                         }`}
                       >
-                        user email
+                       😕 reload required
                       </span>
                     )}
                   </div>

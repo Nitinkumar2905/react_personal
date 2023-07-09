@@ -46,20 +46,22 @@ const Projects = (props) => {
                   react framework for providing the daily updates.
                 </p>
                 <div className="pt-2">
-                  <button
+                  <Link
+                    target="_blank"
+                    to="https://github.com/Nitinkumar2905/News-Monkey-App"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>
@@ -93,20 +95,22 @@ const Projects = (props) => {
                   network and can access from anywhere.
                 </p>
                 <div className="pt-2">
-                  <button
+                  <Link
+                    to="https://github.com/Nitinkumar2905/Inotes"
+                    target="_blank"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>
@@ -135,28 +139,30 @@ const Projects = (props) => {
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  VisionVault is a multimedia content sharing and
-                  storage platform. It provides users with a platform to upload,
+                  VisionVault is a multimedia content sharing and storage
+                  platform. It provides users with a platform to upload,
                   organize, and share various types of visual content, such as
                   images, artwork, photographs, videos, and more. Users can
                   create collections, curate their content, and connect with
                   others who share similar interests.
-                  </p>
+                </p>
                 <div className="pt-2">
-                  <button
+                  <Link
+                    to="https://github.com/Nitinkumar2905/VisionVault"
+                    target="_blank"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>

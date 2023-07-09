@@ -46,20 +46,22 @@ const ProjectSection = (props) => {
                   react framework for providing the daily updates.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="https://github.com/Nitinkumar2905/News-Monkey-App"
+                    target="_blank"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>
@@ -93,20 +95,22 @@ const ProjectSection = (props) => {
                   network and can access from anywhere.
                 </p>
                 <div>
-                  <button
+                  <Link
+                    to="https://github.com/Nitinkumar2905/Inotes"
+                    target="_blank"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
                     Github
-                  </button>
+                  </Link>
 
                   <button
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>
@@ -144,7 +148,8 @@ const ProjectSection = (props) => {
                 </p>
                 <div>
                   <Link
-                    to="/"
+                    to="https://github.com/Nitinkumar2905/VisionVault"
+                    target="_blank"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
@@ -157,7 +162,7 @@ const ProjectSection = (props) => {
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Live 🖤
+                    Save Project 🖤
                   </button>
                 </div>
               </div>

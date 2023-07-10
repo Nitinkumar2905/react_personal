@@ -17,7 +17,12 @@ const Footer = (props) => {
               }`}
             >
               &copy; 2023 &nbsp;
-              <Link className="text-decoration-underline link-offset-1" style={{cursor:'pointer'}} to="https://nitinkumar2905.vercel.app">
+              <Link
+                target="_blank"
+                className="text-decoration-underline link-offset-1"
+                style={{ cursor: "pointer" }}
+                to="https://nitinkumar2905.vercel.app"
+              >
                 nitinkumar2905
               </Link>
               &nbsp; &nbsp; All right reserved

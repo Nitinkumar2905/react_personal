@@ -8,11 +8,9 @@ import Services from "./Services";
 const Home = (props) => {
   return (
     <>
-      {/* <Navbar toggleMode={props.toggleMode} mode={props.mode}/> */}
-      <Hero mode={props.mode}></Hero>
+      <Hero mode={props.mode} setProgress={props.setProgress}></Hero>
       <Projects mode={props.mode} />
-      <Services mode={props.mode} />
-      {/* <Contact mode={props.mode} /> */}
+      <Services mode={props.mode} setProgress={props.setProgress} />
     </>
   );
 };

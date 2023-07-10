@@ -1,16 +1,39 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import item1 from "../images/search.gif";
 import "../styles/Services.css";
+import { toast } from "react-hot-toast";
 
 const ServicesSection = (props) => {
+  const navigate = useNavigate();
+  const hireNow = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      // if(localStorage.getItem("token")){
+      //   navigate("/connect")
+      // }
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/contact");
+    }
+  };
   return (
     <>
       <div
         className={`service-main text-center text-white`}
         style={{ marginTop: "4rem", fontFamily: "sans-serif" }}
       >
-        <div style={{ minHeight: "67.5vh" }}>
+        <div className="service-content" >
           <h1 className={`text-${props.mode === "Dark" ? "light" : "dark"}`}>
             Services
           </h1>
@@ -49,6 +72,7 @@ const ServicesSection = (props) => {
                 </p>
                 <div>
                   <Link
+                  onClick={hireNow}
                     to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
@@ -98,6 +122,7 @@ const ServicesSection = (props) => {
                 </p>
                 <div>
                   <Link
+                  onClick={hireNow}
                     to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
@@ -146,6 +171,7 @@ const ServicesSection = (props) => {
                 </p>
                 <div>
                   <Link
+                  onClick={hireNow}
                     to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"

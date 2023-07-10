@@ -1,7 +1,8 @@
 import React from "react";
-import item1 from "../images/1674617947228.gif";
-import "../styles/Projects.css";
 import { Link } from "react-router-dom";
+// import item1 from "../images/search.gif";
+import "../styles/Projects.css";
+
 const ProjectSection = (props) => {
   return (
     <>
@@ -9,8 +10,8 @@ const ProjectSection = (props) => {
         className={`project-main text-center text-white`}
         style={{ marginTop: "4rem", fontFamily: "sans-serif" }}
       >
-        <div style={{ minHeight: "67.5vh" }}>
-          <h1 className={`text-${props.mode === "Light" ? "dark" : "light"}`}>
+        <div className="project-content">
+          <h1 className={`text-${props.mode === "Dark" ? "light" : "dark"}`}>
             Projects
           </h1>
           <div
@@ -29,13 +30,13 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                  className={`text-start text-decoration-underline underline-link-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } mx-auto w-100 text-${
+                  } link-offset-2 my-3 mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
-                  News-Monkey
+                  NewsMonkey
                 </h4>
                 <p
                   className={`text-start text-${
@@ -47,22 +48,22 @@ const ProjectSection = (props) => {
                 </p>
                 <div>
                   <Link
-                    to="https://github.com/Nitinkumar2905/News-Monkey-App"
-                    target="_blank"
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
+                    GitHub
                   </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Save Project 🖤
-                  </button>
+                    Save Projects 🖤
+                  </Link>
                 </div>
               </div>
             </div>
@@ -77,9 +78,9 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                  className={`text-start text-decoration-underline underline-link-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } mx-auto w-100 text-${
+                  } link-offset-2 my-3 mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
@@ -96,22 +97,22 @@ const ProjectSection = (props) => {
                 </p>
                 <div>
                   <Link
-                    to="https://github.com/Nitinkumar2905/Inotes"
-                    target="_blank"
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
+                    GitHub
                   </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Save Project 🖤
-                  </button>
+                    Save Projects 🖤
+                  </Link>
                 </div>
               </div>
             </div>
@@ -126,9 +127,9 @@ const ProjectSection = (props) => {
               </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
-                  className={`my-3 text-start text-decoration-underline link-offset-2 link-underline-${
+                  className={`text-start text-decoration-underline underline-link-${
                     props.mode === "Dark" ? "light" : "dark"
-                  } mx-auto w-100 text-${
+                  } link-offset-2 my-3 mx-auto w-100 text-${
                     props.mode === "Light" ? "dark" : "light"
                   }`}
                 >
@@ -148,38 +149,26 @@ const ProjectSection = (props) => {
                 </p>
                 <div>
                   <Link
-                    to="https://github.com/Nitinkumar2905/VisionVault"
-                    target="_blank"
+                    to="/contact"
                     className={`my-2 me-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Github
+                    GitHub
                   </Link>
 
-                  <button
+                  <Link
+                    to="/projects"
                     className={`my-2 ms-2 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Save Project 🖤
-                  </button>
+                    Save Projects 🖤
+                  </Link>
                 </div>
               </div>
             </div>
           </div>
-          {/* <div className=" d-flex flex-row justify-items-center mt-5 fs-3  text-white">
-            <span className={`text-${props.mode==="Light"?"dark":"light"} link-offset-2`}>
-              Explore more projects ?  &nbsp; 
-              <button
-                className={`fs-5 btn btn-outline-${
-                  props.mode === "Light" ? "dark" : "light"
-                } my-4`}
-              >
-                 More Projects
-              </button>
-            </span>
-          </div> */}
         </div>
       </div>
     </>

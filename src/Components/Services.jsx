@@ -1,8 +1,32 @@
 import React from "react";
-import item1 from "./images/search.gif";
+// import item1 from "./images/search.gif";
 import "./styles/Services.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-hot-toast";
+
 const Services = (props) => {
+  const navigate = useNavigate();
+  const hireNow = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      // if(localStorage.getItem("token")){
+      //   navigate("/connect")
+      // }
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/contact");
+    }
+  };
   return (
     <>
       <div
@@ -24,9 +48,6 @@ const Services = (props) => {
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
-              {/* <span>
-                <img className={`item-img`} src={item1} alt="" />
-              </span> */}
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
                   className={`mx-auto my-3 text-decoration-underline link-offset-2 link-underline-${
@@ -47,7 +68,9 @@ const Services = (props) => {
                   MERN stack projects.
                 </p>
                 <div className="pt-2">
-                  <Link to="/contact"
+                  <Link
+                    onClick={hireNow}
+                    to="/contact"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
@@ -95,7 +118,9 @@ const Services = (props) => {
                   am here to help you with frontend projects.
                 </p>
                 <div className="pt-2">
-                  <Link to="/contact"
+                  <Link
+                    onClick={hireNow}
+                    to="/contact"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"
                     }`}
@@ -109,7 +134,8 @@ const Services = (props) => {
                       props.mode === "Light" ? "dark" : "light"
                     }`}
                   >
-                    Related Projects                  </Link>
+                    Related Projects{" "}
+                  </Link>
                 </div>
               </div>
             </div>
@@ -142,6 +168,7 @@ const Services = (props) => {
                 </p>
                 <div className="pt-2">
                   <Link
+                    onClick={hireNow}
                     to="/contact"
                     className={`my-2 me-1 btn btn-outline-${
                       props.mode === "Light" ? "dark" : "light"

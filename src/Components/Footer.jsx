@@ -10,7 +10,7 @@ const Footer = (props) => {
         <div className={`footer-content border-top mt-5 border-${props.mode==="Dark"?"light":"dark"}`}>
           <div className="d-flex">
             <span className={`copyright text-${props.mode==="Dark"?"light":"dark"}`}>
-              &copy; 2023 nitinkumar.com  &nbsp; &nbsp; All right reserved
+              &copy; 2023 nitinkumar2905.vercel.app  &nbsp; &nbsp; All right reserved
             </span>
           </div>
         </div>

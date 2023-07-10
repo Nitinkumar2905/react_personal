@@ -1,5 +1,6 @@
 import React from "react";
 import "./styles/Footer.css";
+import { Link } from "react-router-dom";
 const Footer = (props) => {
   return (
     <>
@@ -16,9 +17,9 @@ const Footer = (props) => {
               }`}
             >
               &copy; 2023 &nbsp;
-              <span className="text-decoration-underline link-offset-1" style={{cursor:'pointer'}} to="https://nitinkumar2905.vercel.app">
+              <Link className="text-decoration-underline link-offset-1" style={{cursor:'pointer'}} to="https://nitinkumar2905.vercel.app">
                 nitinkumar2905
-              </span>
+              </Link>
               &nbsp; &nbsp; All right reserved
             </span>
           </div>

@@ -6,10 +6,10 @@
   }
 
   .services {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
     margin-top: 2rem;
-    flex-direction: column;
-    /* border: 1px solid red; */
   }
 
   .service-item {
@@ -29,63 +29,44 @@
     width: 100%;
     margin: 0px auto;
   }
+  .service-content{
+    height: 80vh;
+  }
 
   .services {
-    display: flex;
-    width: 90%;
-    flex-direction: row;
-    margin: 2rem auto;
-    justify-content: space-evenly;
-    /* border: 1px solid red; */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 1rem;
   }
 
-  .service-item:last-child {
-    display: none;
-    flex-direction: column;
+  .service-item {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
     align-items: center;
-    margin: 1rem 1rem;
+    justify-content: center;
+    margin: 0.5rem 1rem;
     padding: 0.3rem 0.7rem;
     padding-bottom: 1rem;
-    width: 90%;
-  }
-
-  .service-item:nth-child(-n + 2) {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 1rem 1rem;
-    padding: 0.3rem 0.7rem;
-    padding-bottom: 1rem;
-    width: 90%;
   }
 }
 
 @media (min-width: 1090px) {
   .service-main {
     height: 100%;
-    width: 100%;
+    width: 98%;
     margin: 0px auto;
   }
 
-  .services {
-    display: flex;
-    flex-direction: row;
-    width: 90%;
-    margin: 2rem auto;
-    /* border: 1px solid red; */
-    justify-content: space-evenly;
+  .service-content{
+    min-height: 68.85vh;
   }
-  @media (max-width: 1090px) {
-    .service-item:last-child {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      margin-left: 1rem;
-      margin-right: 1rem;
-      padding: 0.3rem 0.7rem;
-      padding-bottom: 1rem;
-      width: 90%;
-    }
+
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    /* gap: 1rem; */
+    margin: 2rem 1rem;
   }
 
   .service-item {
@@ -119,3 +100,6 @@ span {
   /* border: 1px solid white; */
 }
 
+.service-more {
+  margin-top: 2rem;
+}

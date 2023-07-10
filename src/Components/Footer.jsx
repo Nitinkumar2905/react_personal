@@ -19,7 +19,7 @@ const Footer = (props) => {
               &copy; 2023 &nbsp;
               <Link
                 target="_blank"
-                className="text-decoration-underline link-offset-1"
+                className={`text-decoration-underline link-offset-1 text-${props.mode==="Light"?"dark":"light"}`}
                 style={{ cursor: "pointer" }}
                 to="https://nitinkumar2905.vercel.app"
               >

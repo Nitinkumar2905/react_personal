@@ -46,7 +46,7 @@ const Hero = (props) => {
               props.mode === "Light" ? "dark" : "light"
             } intro-content`}
           >
-            Looking for a web developer to hire ?
+            Looking for a MERN developer to hire ?
             <span
               className={`tagline text-${
                 props.mode === "Dark" ? "light" : "dark"

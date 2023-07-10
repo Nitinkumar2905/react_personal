@@ -39,7 +39,7 @@ function App() {
         />
         <Navbar mode={mode} toggleMode={toggleMode} setProgress={setProgress} />
         <Routes>
-          <Route exact index element={<Home mode={mode} />} />
+          <Route exact index element={<Home mode={mode} setProgress={setProgress} />} />
           <Route exact path="/" element={<Home setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
           <Route exact path="/projects" element={<ProjectSection setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
           <Route exact path="/services" element={<ServicesSection setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
@@ -48,7 +48,7 @@ function App() {
           <Route exact path="/login" element={<Login setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
           <Route exact path="/signUp" element={<SignUp setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
         </Routes>
-        <Footer mode={mode} />
+        <Footer className="position-absolute end-0" mode={mode} />
       </Router>
     </div>
   );

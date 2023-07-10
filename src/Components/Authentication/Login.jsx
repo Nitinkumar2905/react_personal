@@ -32,7 +32,7 @@ const Login = (props) => {
       if (!navigate(-1)) {
         navigate("/");
       } else {
-        navigate(-1);
+        navigate(+1);
       }
 
       props.setProgress(100);

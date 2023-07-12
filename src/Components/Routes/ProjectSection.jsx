@@ -1,9 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 // import item1 from "../images/search.gif";
 import "../styles/Projects.css";
+import { v4 as uuidv4 } from 'uuid';
+
 
 const ProjectSection = (props) => {
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const host = "https://nitinkumar-in-api.vercel.app";
+  // const host = "http://localhost:5000";
+
+  const updateProjects = async () => {
+    // setFetching(true);
+    props.setProgress(10);
+    let url = `${host}/api/v1/projects`;
+    setLoading(true);
+    let data = await fetch(url);
+    props.setProgress(30);
+    let parsedData = await data.json();
+    props.setProgress(70);
+    setProjects(parsedData.projects);
+    // setTotalResults(parsedData.totalResults);
+    setLoading(false);
+    // setFetching(false);
+    props.setProgress(100);
+  };
+  useEffect(() => {
+    setLoading(true);
+    updateProjects();
+    // eslint-disable-next-line
+  }, []);
   return (
     <>
       <div
@@ -19,15 +46,67 @@ const ProjectSection = (props) => {
               props.mode === "Light" ? "dark" : "light"
             } projects`}
           >
+            {!loading &&
+              projects &&
+              projects?.map((element) => {
+                const key = uuidv4();
+                return (
+                  <div className="" key={key}>
+                    <div
+                      className={`my-2 project-item ${
+                        props.mode === "Light" ? "itemLight" : "itemDark"
+                      } rounded`}
+                    >
+
+                      <div style={{minHeight:'40vh'}} className="my-2 d-flex flex-column align-items-start mx-3">
+                        <h4
+                          className={`text-start text-decoration-underline underline-link-${
+                            props.mode === "Dark" ? "light" : "dark"
+                          } link-offset-2 my-3 mx-auto w-100 text-${
+                            props.mode === "Light" ? "dark" : "light"
+                          }`}
+                        >
+                          {element.name}
+                        </h4>
+                        <p
+                          className={`text-start text-${
+                            props.mode === "Light" ? "dark" : "light"
+                          }`}
+                        >
+                          {element.description}
+                        </p>
+                        <div>
+                          <Link
+                            to="/contact"
+                            className={`my-2 me-2 btn btn-outline-${
+                              props.mode === "Light" ? "dark" : "light"
+                            }`}
+                          >
+                            GitHub
+                          </Link>
+
+                          <Link
+                            to="/projects"
+                            className={`my-2 ms-2 btn btn-outline-${
+                              props.mode === "Light" ? "dark" : "light"
+                            }`}
+                          >
+                            Save Projects 🖤
+                          </Link>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
             {/* item number 1 */}
-            <div
+
+            {/* <div
               className={`my-2 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
-              <span>
-                {/* <img className={`item-img`} src={item1} alt="" /> */}
-              </span>
+
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
                   className={`text-start text-decoration-underline underline-link-${
@@ -66,16 +145,14 @@ const ProjectSection = (props) => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* item number 1 */}
-            <div
+            {/* <div
               className={`my-2 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
-              <span>
-                {/* <img className={`item-img`} src={item1} alt="" /> */}
-              </span>
+             
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
                   className={`text-start text-decoration-underline underline-link-${
@@ -115,16 +192,13 @@ const ProjectSection = (props) => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
             {/* item number 1 */}
-            <div
+            {/* <div
               className={`my-2 project-item ${
                 props.mode === "Light" ? "itemLight" : "itemDark"
               } rounded`}
             >
-              <span>
-                {/* <img className={`item-img`} src={item1} alt="" /> */}
-              </span>
               <div className="my-2 d-flex flex-column align-items-start mx-3">
                 <h4
                   className={`text-start text-decoration-underline underline-link-${
@@ -167,7 +241,7 @@ const ProjectSection = (props) => {
                   </Link>
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

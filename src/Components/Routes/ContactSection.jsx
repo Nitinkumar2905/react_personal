@@ -18,13 +18,13 @@ const Contact = (props) => {
           </h1>
           <div className={`main-content`}>
             <div className="form-content">
-              <h2
+              <h3
                 className={`text-decoration-underline  link-offset-2 text-${
                   props.mode === "Dark" ? "light" : "dark"
                 }`}
               >
                 Get in Touch
-              </h2>
+              </h3>
               <p
                 className={`mt-4 sm:fs-5 text-${
                   props.mode === "Dark" ? "light" : "dark"
@@ -170,7 +170,7 @@ const Contact = (props) => {
                 props.mode === "Dark" ? "light" : "dark"
               }`}
             >
-              <div className={`mt-3 `}>
+              <div className={`mt-5 `}>
                 <h5>Feeling social? Find me on these online spaces too!</h5>
               </div>
 

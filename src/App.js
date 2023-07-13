@@ -11,6 +11,7 @@ import Login from "./Components/Authentication/Login";
 import SignUp from './Components/Authentication/SignUp'
 import { Toaster } from "react-hot-toast";
 import LoadingBar from 'react-top-loading-bar'
+import UserProfile from './Components/Routes/UserProfile'
 
 function App() {
 
@@ -47,6 +48,7 @@ function App() {
           <Route exact path="/connect" element={<Connect setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
           <Route exact path="/login" element={<Login setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
           <Route exact path="/signUp" element={<SignUp setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
+          <Route exact path="/profile" element={<UserProfile setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>
         </Routes>
         <Footer className="position-absolute end-0" mode={mode} />
       </Router>

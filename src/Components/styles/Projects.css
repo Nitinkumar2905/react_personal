@@ -79,6 +79,10 @@
     padding-bottom: 1rem;
     width: 90%;
   }
+
+  .project-map{
+    margin: .9rem 0rem;
+  }
 }
 
 .project-item:hover {

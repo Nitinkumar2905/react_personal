@@ -27,6 +27,27 @@ const Hero = (props) => {
       navigate("/contact");
     }
   };
+  const connect = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      // if(localStorage.getItem("token")){
+      //   navigate("/connect")
+      // }
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/connect");
+    }
+  };
   return (
     <>
       <div
@@ -69,12 +90,12 @@ const Hero = (props) => {
             </button>
 
             <button
-            onClick={hireNow}
+            onClick={connect}
               className={`m-2 sm:mx-2 sm:fs-5 button-jump3 btn btn-outline-${
                 props.mode === "Dark" ? "light" : "dark"
               }`}
             >
-              Contact
+              Connect
             </button>
           </div>
         </div>

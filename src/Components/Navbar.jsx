@@ -4,13 +4,15 @@ import "./styles/Navbar.css";
 import logo from "./images/sunset.jpg";
 import dark from "./images/dark mode.png";
 import light from "./images/light mode.png";
+import userLight from "./images/user-white.png";
+import userDark from "./images/user-dark.png";
 import { toast } from "react-hot-toast";
 
 const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);
@@ -230,22 +232,14 @@ const Navbar = (props) => {
                     } text-decoration-none `}
                     style={{ cursor: "default" }}
                   >
-                    {localStorage.getItem("token") && user.email ? (
-                      <span
-                        className={`text-${
-                          props.mode === "Dark" ? "success" : "primary"
-                        }`}
-                      >
-                        {user.email}
-                      </span>
-                    ) : (
-                      <span
-                        className={`text-${
-                          props.mode === "Dark" ? "light" : "dark"
-                        }`}
-                      >
-                       😕 reload required
-                      </span>
+                    {localStorage.getItem("token") && (
+                      <Link to="/profile">
+                        <img
+                          style={{ height: "2.5rem", cursor: "pointer" }}
+                          src={props.mode === "Dark" ? userDark : userLight}
+                          alt=""
+                        />
+                      </Link>
                     )}
                   </div>
                   <button

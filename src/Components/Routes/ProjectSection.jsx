@@ -9,8 +9,10 @@ const ProjectSection = (props) => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
-  // const host = "https://nitinkumar-in-api.vercel.app";
-  const host = "http://localhost:8000";
+  const [save, setSave] = useState(false)
+
+  const host = "https://nitinkumar-in-api.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
   const updateProjects = async () => {
@@ -35,7 +37,6 @@ const ProjectSection = (props) => {
   }, []);
 
   // to save a project user's profile's saved project if logged in
-
   const saveProject = async (projectId) => {
     if (!localStorage.getItem("token")) {
       navigate("/login");
@@ -56,6 +57,7 @@ const ProjectSection = (props) => {
           },
           body: JSON.stringify({ projectId }),
         });
+        setSave(false)
 
         if (response.ok) {
           toast("Project saved successfully", "success", {
@@ -65,6 +67,7 @@ const ProjectSection = (props) => {
               color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
             },
           });
+          setSave(true)
         } else {
           toast("Failed to save project", "error", {
             style: {
@@ -76,6 +79,7 @@ const ProjectSection = (props) => {
         }
       } catch (error) {
         console.error(error);
+        setSave(false)
         toast("An error occurred while saving the project", "error", {
           style: {
             borderRadius: "10px",
@@ -150,7 +154,7 @@ const ProjectSection = (props) => {
                               props.mode === "Light" ? "dark" : "light"
                             }`}
                           >
-                            Save Project
+                            {save ?(<span>Save</span>):(<span>Saved</span>)}
                           </button>
                         </div>
                       </div>

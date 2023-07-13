@@ -9,9 +9,9 @@ const ProjectSection = (props) => {
   const navigate = useNavigate();
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [save, setSave] = useState(false)
+  const [save, setSave] = useState(false);
 
-  const host = "https://nitinkumar2905.vercel.app";
+  const host = "https://nitinkumar-backend.vercel.app";
   // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
@@ -57,7 +57,7 @@ const ProjectSection = (props) => {
           },
           body: JSON.stringify({ projectId }),
         });
-        setSave(false)
+        setSave(false);
 
         if (response.ok) {
           toast("Project saved successfully", "success", {
@@ -67,7 +67,7 @@ const ProjectSection = (props) => {
               color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
             },
           });
-          setSave(true)
+          setSave(true);
         } else {
           toast("Failed to save project", "error", {
             style: {
@@ -79,7 +79,7 @@ const ProjectSection = (props) => {
         }
       } catch (error) {
         console.error(error);
-        setSave(false)
+        setSave(false);
         toast("An error occurred while saving the project", "error", {
           style: {
             borderRadius: "10px",
@@ -154,7 +154,7 @@ const ProjectSection = (props) => {
                               props.mode === "Light" ? "dark" : "light"
                             }`}
                           >
-                            {save ?(<span>Save</span>):(<span>Saved</span>)}
+                            Save
                           </button>
                         </div>
                       </div>

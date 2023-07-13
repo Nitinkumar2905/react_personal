@@ -11,8 +11,8 @@ import { toast } from "react-hot-toast";
 const Navbar = (props) => {
   const navigate = useNavigate();
   const [user, setUser] = useState({ name: "", email: "" });
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);

@@ -36,7 +36,6 @@ const Login = (props) => {
       }
 
       props.setProgress(100);
-      console.log(props.setProgress, "used");
       toast.success("Successfully logged In!", {
         style: {
           borderRadius: "10px",

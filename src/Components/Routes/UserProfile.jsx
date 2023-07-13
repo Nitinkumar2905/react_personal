@@ -6,8 +6,9 @@ import { Link } from "react-router-dom";
 const Profile = (props) => {
   const [savedProjects, setSavedProjects] = useState([]);
   // const [loading, setLoading] = useState(false);
+
+  const host = "https://nitinkumar-backend.vercel.app";
   // const host = "http://localhost:8000";
-  const host = "https://nitinkumar2905.vercel.app"
   const token = localStorage.getItem("token");
 
   const fetchSavedProjects = async () => {

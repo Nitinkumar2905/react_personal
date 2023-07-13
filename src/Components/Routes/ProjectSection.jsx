@@ -11,7 +11,7 @@ const ProjectSection = (props) => {
   const [loading, setLoading] = useState(false);
   const [save, setSave] = useState(false)
 
-  const host = "https://nitinkumar-in-api.vercel.app";
+  const host = "https://nitinkumar2905.vercel.app";
   // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 

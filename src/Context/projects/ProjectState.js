@@ -8,8 +8,8 @@ const ProjectState = (props) => {
   const [loading, setLoading] = useState(false);
   const [savedProjects, setSavedProjects] = useState([]);
 
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+//   const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
   const updateProjects = async () => {

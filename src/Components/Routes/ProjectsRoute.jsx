@@ -1,6 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
-// import item1 from "../images/search.gif";
 import "../styles/Projects.css";
 import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-hot-toast";
@@ -16,7 +15,6 @@ const ProjectRoute = (props) => {
     loading,
     saveProject,
     updateProjects,
-    savedProjects,
   } = context;
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "../styles/Services.css";
 import { toast } from "react-hot-toast";
 
-const ServicesSection = (props) => {
+const ServicesRoute = (props) => {
   const navigate = useNavigate();
   const hireNow = (e) => {
     e.preventDefault();
@@ -198,4 +198,4 @@ const ServicesSection = (props) => {
   );
 };
 
-export default ServicesSection;
+export default ServicesRoute;

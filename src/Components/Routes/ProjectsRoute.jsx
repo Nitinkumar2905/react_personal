@@ -1,87 +1,41 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+// import item1 from "../images/search.gif";
+import "../styles/Projects.css";
+import { v4 as uuidv4 } from "uuid";
 import { toast } from "react-hot-toast";
-import { Link } from "react-router-dom";
-// import { v4 as uuidv4 } from "uuid";
+import ProjectContext from "../../Context/projects/ProjectContext";
 
-const Profile = (props) => {
-  const [savedProjects, setSavedProjects] = useState([]);
-  // const [loading, setLoading] = useState(false);
-
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+const ProjectRoute = (props) => {
+  const navigate = useNavigate();
   const token = localStorage.getItem("token");
+  const context = useContext(ProjectContext);
 
-  const fetchSavedProjects = async () => {
-    try {
-      const response = await fetch(`${host}/api/project/fetchSavedProjects`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": token,
-        },
-      });
+  const {
+    projects,
+    loading,
+    saveProject,
+    updateProjects,
+    savedProjects,
+  } = context;
 
-      if (response.ok) {
-        const json = await response.json();
-        console.log(json.SavedProjects);
-        setSavedProjects(json.SavedProjects);
-      } else {
-        console.log("Failed to fetch saved projects");
-      }
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  // Fetch all saved projects
   useEffect(() => {
-    if (localStorage.getItem("token")) {
-      fetchSavedProjects();
-    }
-    // eslint-disable-next-line
+    updateProjects();
+    // esline-disable-next-line
   }, []);
 
-  const removeProject = async (projectId) => {
-    try {
-      const response = await fetch(`${host}/api/project/remove/${projectId}`, {
-        method: "DELETE",
-        headers: {
-          "auth-token": token,
-        },
-        body: JSON.stringify({ projectId }),
-      });
-
-      if (response.ok) {
-        console.log("removed", projectId);
-        toast("Project saved successfully", "success", {
-          style: {
-            borderRadius: "10px",
-            background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-            color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-          },
-        });
-        // Remove the deleted project from savedProjects state
-        setSavedProjects((prevProjects) =>
-          prevProjects.filter((project) => project.projectId !== projectId)
-        );
-      } else {
-        toast("Failed to save project", "error", {
-          style: {
-            borderRadius: "10px",
-            background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-            color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-          },
-        });
-      }
-    } catch (error) {
-      console.error(error, projectId);
-      toast("An error occurred while saving the project", "error", {
+  const handleSaveProject = async (projectId) => {
+    if (!token) {
+      navigate("/login");
+      toast("Please login to continue", {
         style: {
           borderRadius: "10px",
           background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
           color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
         },
       });
+    } else {
+      saveProject(projectId);
     }
   };
 
@@ -93,24 +47,19 @@ const Profile = (props) => {
       >
         <div className="project-content">
           <h1 className={`text-${props.mode === "Dark" ? "light" : "dark"}`}>
-            Saved Projects
+            Projects
           </h1>
-          <h3
-            className={`btn btn-outline-${
-              props.mode === "Dark" ? "light" : "dark"
-            }`}
-          >
-            Total No. of Saved Project : {savedProjects.length}
-          </h3>
           <div
             className={`text-${
               props.mode === "Light" ? "dark" : "light"
             } projects`}
           >
-            {savedProjects &&
-              savedProjects &&
-              savedProjects?.map((project) => {
-                const key = project.projectId;
+            {!loading &&
+              projects &&
+              projects?.map((project) => {
+                const key = uuidv4();
+                // const isSaved = savedProjects.includes(project.projectId);
+
                 return (
                   <div className="project-map" key={key}>
                     <div
@@ -122,6 +71,15 @@ const Profile = (props) => {
                         style={{ minHeight: "40vh" }}
                         className="my-2 d-flex flex-column align-items-start mx-3"
                       >
+                        <button
+                          style={{ cursor: "default" }}
+                          className={`btn text-${
+                            props.mode === "Dark" ? "light" : "dark"
+                          } border-${props.mode === "Dark" ? "light" : "dark"}`}
+                        >
+                          Id : #{project.projectId}
+                        </button>
+
                         <h4
                           className={`text-start text-decoration-underline underline-link-${
                             props.mode === "Dark" ? "light" : "dark"
@@ -148,14 +106,15 @@ const Profile = (props) => {
                           >
                             GitHub
                           </Link>
-
                           <button
-                            onClick={() => removeProject(project.projectId)}
+                            onClick={() => handleSaveProject(project.projectId)}
                             className={`my-2 ms-2 btn btn-outline-${
                               props.mode === "Light" ? "dark" : "light"
                             }`}
+                            // disabled={isSaved}
                           >
-                            Remove
+                            {/* {isSaved ? "Saved" : "Save"} */}
+                            Save
                           </button>
                         </div>
                       </div>
@@ -170,4 +129,4 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+export default ProjectRoute;

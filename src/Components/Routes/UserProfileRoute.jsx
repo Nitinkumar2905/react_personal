@@ -2,7 +2,6 @@ import React, { useContext, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../styles/Projects.css";
 import ProjectContext from "../../Context/projects/ProjectContext";
-// import { v4 as uuidv4 } from "uuid";
 
 const Profile = (props) => {
   const { savedProjects, removeProject, fetchSavedProjects } = useContext(

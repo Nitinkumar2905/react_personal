@@ -13,7 +13,7 @@ import { Toaster } from "react-hot-toast";
 import LoadingBar from 'react-top-loading-bar'
 import UserProfileRoute from './Components/Routes/UserProfileRoute'
 import ProjectState from "./Context/projects/ProjectState";
-import AuthState from "./Context/authentication_/AuthState";
+// import AuthState from "./Context/authentication_/AuthState";
 
 function App() {
 
@@ -31,7 +31,7 @@ function App() {
     }`;
 
   return (
-    <AuthState>
+    // <AuthState>
       <ProjectState>
         <Router>
           <div><Toaster position="top-center" toastOptions={{ duration: 1000 }}
@@ -56,7 +56,7 @@ function App() {
           <Footer className="position-absolute end-0" mode={mode} />
         </Router>
       </ProjectState>
-    </AuthState>
+    // </AuthState>
   );
 }
 

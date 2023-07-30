@@ -11,7 +11,7 @@
   }
   .welcome {
     font-size: 2.1rem;
-    text-shadow: 2px 3px 10px pink;
+    text-shadow: 2px 3px 10px rgb(41, 151, 85);
     text-align: center;
     position: relative;
     animation: welcomeText 2s ease-in-out forwards;
@@ -21,7 +21,7 @@
     display: flex;
     flex-direction: column;
     margin: 0.8rem 0rem;
-    text-shadow: 2px 3px 10px wheat;
+    text-shadow: 2px 3px 10px rgb(179, 245, 196);
     position: relative;
     animation: introText 3s ease-in-out forwards;
   }
@@ -40,7 +40,7 @@
   }
   .welcome {
     font-size: 2.5rem;
-    text-shadow: 2px 3px 10px pink;
+    text-shadow: 2px 3px 10px rgb(33, 150, 70);
     text-align: start;
     position: relative;
     animation: welcomeText 2s ease-in-out forwards;
@@ -50,7 +50,7 @@
     display: flex;
     flex-direction: column;
     margin: 0.8rem 1.6rem;
-    text-shadow: 2px 3px 10px wheat;
+    text-shadow: 2px 3px 10px rgb(168, 235, 178);
     position: relative;
     animation: introText 3s ease-in-out forwards;
   }
@@ -69,7 +69,7 @@
   }
   .welcome {
     font-size: 2.9rem;
-    text-shadow: 2px 3px 10px pink;
+    text-shadow: 2px 3px 10px rgb(26, 156, 93);
     text-align: start;
     position: relative;
     animation: welcomeText 2s ease-in-out forwards;
@@ -79,7 +79,7 @@
     display: flex;
     flex-direction: column;
     margin: 0.8rem 1.6rem;
-    text-shadow: 2px 3px 10px wheat;
+    text-shadow: 2px 3px 10px rgb(168, 233, 203);
     position: relative;
     animation: introText 3s ease-in-out forwards;
   }
@@ -98,7 +98,7 @@
   }
   .welcome {
     font-size: 3.5rem;
-    text-shadow: 2px 3px 10px pink;
+    text-shadow: 2px 3px 10px rgb(20, 156, 54);
     text-align: start;
     position: relative;
     animation: welcomeText 2s ease-in-out forwards;
@@ -108,7 +108,7 @@
     display: flex;
     flex-direction: column;
     margin: 0.8rem 1.6rem;
-    text-shadow: 2px 3px 10px wheat;
+    text-shadow: 2px 3px 10px rgb(179, 245, 191);
     position: relative;
     animation: introText 3s ease-in-out forwards;
   }
@@ -126,7 +126,7 @@
   }
   .welcome {
     font-size: 4rem;
-    text-shadow: 2px 3px 10px pink;
+    text-shadow: 2px 3px 10px rgb(50, 157, 26);
     text-align: start;
     position: relative;
     animation: welcomeText 2s ease-in-out forwards;
@@ -136,7 +136,7 @@
     display: flex;
     flex-direction: column;
     margin: 0.8rem 1.6rem;
-    text-shadow: 2px 3px 10px wheat;
+    text-shadow: 2px 3px 10px rgb(157, 231, 173);
     position: relative;
     animation: introText 3s ease-in-out forwards;
   }
@@ -172,7 +172,7 @@
 }
 
 .tagline {
-  text-shadow: 2px 3px 10px wheat;
+  text-shadow: 2px 3px 10px rgb(167, 231, 195);
 }
 
 .btn-color {

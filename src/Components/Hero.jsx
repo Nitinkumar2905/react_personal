@@ -1,32 +1,32 @@
 import React from "react";
 import "animate.css";
 import "./styles/Hero.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 const Hero = (props) => {
   const navigate = useNavigate();
-  const hireNow = (e) => {
-    e.preventDefault();
-    props.setProgress(0);
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-      // if(localStorage.getItem("token")){
-      //   navigate("/connect")
-      // }
-      props.setProgress(100);
-      toast("Please login to continue", "warning", {
-        style: {
-          borderRadius: "10px",
-          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-        },
-      });
-    } else {
-      props.setProgress(100);
-      navigate("/contact");
-    }
-  };
+  // const hireNow = (e) => {
+  //   e.preventDefault();
+  //   props.setProgress(0);
+  //   if (!localStorage.getItem("token")) {
+  //     navigate("/login");
+  //     // if(localStorage.getItem("token")){
+  //     //   navigate("/connect")
+  //     // }
+  //     props.setProgress(100);
+  //     toast("Please login to continue", "warning", {
+  //       style: {
+  //         borderRadius: "10px",
+  //         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+  //         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+  //       },
+  //     });
+  //   } else {
+  //     props.setProgress(100);
+  //     navigate("/contact");
+  //   }
+  // };
   const connect = (e) => {
     e.preventDefault();
     props.setProgress(0);
@@ -80,22 +80,19 @@ const Hero = (props) => {
           <div
             className={`hero-buttons d-flex align-items-center flex-row`}
           >
-            <button
-            onClick={hireNow}
-              className={`m-2 sm:mx-2 sm:fs-5 button-jump1 btn btn-outline-${
-                props.mode === "Dark" ? "light" : "dark"
-              }`}
+            <Link
+            // onClick={hireNow}
+            to="/contact"
+              className={`m-2 sm:mx-2 sm:fs-5 button-jump1 btn btn-success`}
             >
               Hire Now
-            </button>
+            </Link>
 
             <button
             onClick={connect}
-              className={`m-2 sm:mx-2 sm:fs-5 button-jump3 btn btn-outline-${
-                props.mode === "Dark" ? "light" : "dark"
-              }`}
+              className={`m-2 sm:mx-2 sm:fs-5 button-jump3 btn btn-outline-success`}
             >
-              Connect
+              Work With Me
             </button>
           </div>
         </div>

@@ -74,18 +74,14 @@ const ServicesRoute = (props) => {
                   <Link
                   onClick={hireNow}
                     to="/contact"
-                    className={`my-2 me-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 me-2 btn btn-success`}
                   >
                     Hire Now
                   </Link>
 
                   <Link
                     to="/projects"
-                    className={`my-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 ms-2 btn btn-outline-success`}
                   >
                     Related Projects
                   </Link>
@@ -120,22 +116,18 @@ const ServicesRoute = (props) => {
                   little detailing in every tools and design , but don't worry I
                   am here to help you with frontend projects.
                 </p>
-                <div>
+                <div className="">
                   <Link
                   onClick={hireNow}
                     to="/contact"
-                    className={`my-2 me-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 me-2 btn btn-success`}
                   >
                     Hire Now
                   </Link>
 
                   <Link
                     to="/projects"
-                    className={`my-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 ms-2 btn btn-outline-success`}
                   >
                     Related Projects
                   </Link>
@@ -173,18 +165,14 @@ const ServicesRoute = (props) => {
                   <Link
                   onClick={hireNow}
                     to="/contact"
-                    className={`my-2 me-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 me-2 btn btn-success`}
                   >
                     Hire Now
                   </Link>
 
                   <Link
                     to="/projects"
-                    className={`my-2 ms-2 btn btn-outline-${
-                      props.mode === "Light" ? "dark" : "light"
-                    }`}
+                    className={`my-2 ms-2 btn btn-outline-success`}
                   >
                     Related Projects
                   </Link>

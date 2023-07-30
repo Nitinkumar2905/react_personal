@@ -1,4 +1,4 @@
-import React, { useContext, useEffect} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Projects.css";
 import { v4 as uuidv4 } from "uuid";
@@ -33,7 +33,8 @@ const ProjectRoute = (props) => {
         },
       });
     } else {
-      saveProject(projectId);
+      await saveProject(projectId);
+      // await updateProjects();
     }
   };
 
@@ -56,8 +57,6 @@ const ProjectRoute = (props) => {
               projects &&
               projects?.map((project) => {
                 const key = uuidv4();
-                // const isSaved = savedProjects.includes(project.projectId);
-
                 return (
                   <div className="project-map" key={key}>
                     <div
@@ -66,8 +65,8 @@ const ProjectRoute = (props) => {
                       } rounded`}
                     >
                       <div
-                        style={{ minHeight: "40vh" }}
-                        className="my-2 d-flex flex-column align-items-start mx-3"
+                        style={{ minHeight: "43vh" }}
+                        className="mt-4 d-flex flex-column align-items-start mx-3"
                       >
                         <button
                           style={{ cursor: "default" }}
@@ -98,20 +97,14 @@ const ProjectRoute = (props) => {
                           <Link
                             to={`${project.gitHub_Url}`}
                             target="_blank"
-                            className={`my-2 me-2 btn btn-outline-${
-                              props.mode === "Light" ? "dark" : "light"
-                            }`}
+                            className={`my-2 me-2 btn btn-success`}
                           >
                             GitHub
                           </Link>
                           <button
                             onClick={() => handleSaveProject(project.projectId)}
-                            className={`my-2 ms-2 btn btn-outline-${
-                              props.mode === "Light" ? "dark" : "light"
-                            }`}
-                            // disabled={isSaved}
+                            className={`my-2 ms-2 btn btn-outline-success`}
                           >
-                            {/* {isSaved ? "Saved" : "Save"} */}
                             Save
                           </button>
                         </div>

@@ -8,16 +8,21 @@ const ProjectState = (props) => {
   const [loading, setLoading] = useState(false);
   const [savedProjects, setSavedProjects] = useState([]);
 
-  const host = "https://nitinkumar-backend.vercel.app";
-//   const host = "http://localhost:8000";
+    const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
   const updateProjects = async () => {
-    let url = `${host}/api/project/fetchAllProjects`;
     setLoading(true);
-    let data = await fetch(url);
-    let parsedData = await data.json();
-    setProjects(parsedData.projects);
+    try {
+      const response = await fetch(`${host}/api/project/fetchAllProjects`);
+      if (response.ok) {
+        const data = await response.json();
+        setProjects(data.projects);
+      }
+    } catch (error) {
+      console.error(error);
+    }
     setLoading(false);
   };
 
@@ -64,24 +69,28 @@ const ProjectState = (props) => {
   };
 
   const fetchSavedProjects = async () => {
-    try {
-      const response = await fetch(`${host}/api/project/fetchSavedProjects`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          "auth-token": token,
-        },
-      });
-
-      if (response.ok) {
-        const json = await response.json();
-        setSavedProjects(json.SavedProjects);
-      } else {
-        console.log("Failed to fetch saved projects");
+    setLoading(true)
+    if(token){
+      try {
+        const response = await fetch(`${host}/api/project/fetchSavedProjects`, {
+          method: "GET",
+          headers: {
+            "Content-Type": "application/json",
+            "auth-token": token,
+          },
+        });
+  
+        if (response.ok) {
+          const data = await response.json();
+          setSavedProjects(data.SavedProjects);
+        } else {
+          console.log("Failed to fetch saved projects");
+        }
+      } catch (error) {
+        console.error(error);
       }
-    } catch (error) {
-      console.error(error);
     }
+    setLoading(false)
   };
 
   const removeProject = async (projectId) => {

@@ -3,15 +3,20 @@ import { Link } from "react-router-dom";
 import "../styles/Projects.css";
 import ProjectContext from "../../Context/projects/ProjectContext";
 
-const Profile = (props) => {
-  const { savedProjects, removeProject, fetchSavedProjects } = useContext(
-    ProjectContext
-  );
+const UserSavedProjects = (props) => {
+  const {
+    savedProjects,
+    removeProject,
+    fetchSavedProjects,
+    loading,
+    // setLoading,
+  } = useContext(ProjectContext);
 
   // Fetch all saved projects
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetchSavedProjects();
+      // setLoading(false);
     }
     // eslint-disable-next-line
   }, []);
@@ -33,6 +38,7 @@ const Profile = (props) => {
           >
             Total No. of Saved Project : {savedProjects.length}
           </h3>
+
           <div
             className={`text-${
               props.mode === "Light" ? "dark" : "light"
@@ -42,6 +48,7 @@ const Profile = (props) => {
               savedProjects &&
               savedProjects?.map((project) => {
                 const key = project.projectId;
+
                 return (
                   <div className="project-map" key={key}>
                     <div
@@ -54,7 +61,7 @@ const Profile = (props) => {
                         className="my-2 d-flex flex-column align-items-start mx-3"
                       >
                         <button
-                        style={{cursor:'default'}}
+                          style={{ cursor: "default" }}
                           className={`btn text-${
                             props.mode === "Dark" ? "light" : "dark"
                           } border border-${
@@ -83,18 +90,14 @@ const Profile = (props) => {
                           <Link
                             to={`${project.gitHub_Url}`}
                             target="_blank"
-                            className={`my-2 me-2 btn btn-outline-${
-                              props.mode === "Light" ? "dark" : "light"
-                            }`}
+                            className={`my-2 me-2 btn btn-success`}
                           >
                             GitHub
                           </Link>
 
                           <button
                             onClick={() => removeProject(project.projectId)}
-                            className={`my-2 ms-2 btn btn-outline-${
-                              props.mode === "Light" ? "dark" : "light"
-                            }`}
+                            className={`my-2 ms-2 btn btn-outline-success`}
                           >
                             Remove
                           </button>
@@ -111,4 +114,4 @@ const Profile = (props) => {
   );
 };
 
-export default Profile;
+export default UserSavedProjects;

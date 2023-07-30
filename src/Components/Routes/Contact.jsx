@@ -229,9 +229,7 @@ const Contact = (props) => {
                 >
                   <span className="ms-3 fs-2 ">Hire me on : &nbsp;</span>
                   <button
-                    className={`fs-5 btn btn-outline-${
-                      props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                    className={`fs-5 btn btn-outline-success`}
                   >
                     <a
                       style={{ textDecoration: "none", color: "inherit" }}

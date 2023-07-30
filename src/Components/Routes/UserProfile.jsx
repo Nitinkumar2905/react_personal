@@ -6,9 +6,11 @@ import ProjectContext from "../../Context/projects/ProjectContext";
 
 const UserProfile = (props) => {
   const context = useContext(ProjectContext);
-  const { fetchSavedProjects, savedProjects } = context;
+  const { savedProjects } = context;
   const [user, setUser] = useState({ name: "", email: "", userId: "" });
-  const host = "http://localhost:8000";
+
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
 
@@ -133,7 +135,14 @@ const UserProfile = (props) => {
                 >
                   Saved Projects
                 </Link>
-                <div style={{fontSize:'.8rem'}} className={`mt-2 text-${props.mode==="Dark"?"light":"dark"}`}>No. of Saved Projects : {savedProjects.length}</div>
+                <div
+                  style={{ fontSize: ".8rem" }}
+                  className={`mt-2 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
+                >
+                  No. of Saved Projects : {savedProjects.length}
+                </div>
               </div>
               {/* Other Links */}
               <hr className="bg-black" style={{ width: "100%" }} />

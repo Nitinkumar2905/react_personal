@@ -6,6 +6,7 @@ import ProjectContext from "../../Context/projects/ProjectContext";
 import { toast } from "react-hot-toast";
 import { useRef } from "react";
 import "../styles/UserProfile.css";
+import loadingbar from '../images/loadingt.gif'
 
 const UserProfile = (props) => {
   const context = useContext(ProjectContext);
@@ -140,7 +141,8 @@ const UserProfile = (props) => {
                   </h6>
                 </div>
               ) : (
-                <span>Loading user data</span>
+                // <span>loading user data</span>
+                <div className="text-center"><img style={{width:'20px',height:'20px'}} src={loadingbar} alt="" /></div>
               )}
             </div>
 

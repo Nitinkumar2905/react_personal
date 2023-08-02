@@ -14,19 +14,30 @@ import LoadingBar from 'react-top-loading-bar'
 import SavedProjects from './Components/Routes/UserSavedProjects'
 import ProjectState from "./Context/projects/ProjectState";
 import UserProfile from "./Components/Routes/UserProfile";
+import { useEffect } from "react";
 // import AuthState from "./Context/authentication_/AuthState";
 
 function App() {
 
-  const [mode, setmode] = useState("Dark");
-  // eslint-disable-next-line
-  const toggleMode = () => {
-    if (mode === "Dark") {
-      setmode("Light");
-    } else {
-      setmode("Dark");
+  const [mode, setMode] = useState("Light");
+
+  useEffect(() => {
+    // Retrieve the saved theme mode from local storage
+    const savedMode = localStorage.getItem("mode");
+
+    if (savedMode) {
+      setMode(savedMode);
     }
+    // eslint-disable-next-line
+  }, []); // Run this effect only once on component mount
+
+  const toggleMode = () => {
+   const newMode=mode==="Light"?"Dark":"Light";
+  //  save the updated theme mode to local storage
+  localStorage.setItem("mode",newMode);
+  setMode(newMode)
   };
+
   const [progress, setProgress] = useState(0)
   document.body.style.backgroundColor = `${mode === "Dark" ? "rgb(17 24 39)" : "#D6D5DB"
     }`;

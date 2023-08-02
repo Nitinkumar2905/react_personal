@@ -4,8 +4,8 @@ import "../styles/Login.css";
 import { toast } from "react-hot-toast";
 
 const Login = (props) => {
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
@@ -44,7 +44,7 @@ const Login = (props) => {
         },
       });
     } else {
-      props.setProgress(0);
+      props.setProgress(100);
       toast.error("Invalid credentials !", {
         style: {
           borderRadius: "10px",
@@ -66,7 +66,7 @@ const Login = (props) => {
           props.mode === "Dark" ? "light" : "dark"
         } text-center`}
       >
-        <h3>Login to Continue</h3>
+        <h3>SignIn to Continue</h3>
         <div
           className={`login-form border border-${
             props.mode === "Dark" ? "light" : "dark"

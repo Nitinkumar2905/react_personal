@@ -1,0 +1,12 @@
+@media (max-width:768px) {
+    #main-item-profile{
+        display: flex;
+        height: 82vh;
+    }
+}
+
+@media (min-width:769px) {
+    #main-item-profile{
+        height: 72vh;
+    }
+}

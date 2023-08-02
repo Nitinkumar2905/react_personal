@@ -1,13 +1,15 @@
 import React, { useEffect, useState, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import userDark from "../images/user-dark.png";
 import userLight from "../images/user-white.png";
 import ProjectContext from "../../Context/projects/ProjectContext";
+import { toast } from "react-hot-toast";
 
 const UserProfile = (props) => {
   const context = useContext(ProjectContext);
   const { savedProjects } = context;
   const [user, setUser] = useState({ name: "", email: "", userId: "" });
+  const navigate=useNavigate();
 
   const host = "https://nitinkumar-backend.vercel.app";
   // const host = "http://localhost:8000";
@@ -35,6 +37,26 @@ const UserProfile = (props) => {
       } else {
         throw new Error("Failed to fetch user details");
       }
+    }
+  };
+
+  const deleteUserAccount = async () => {
+    const response = await fetch(`${host}/api/auth/deleteUser/${user.userId}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "auth-token": token,
+      },
+    });
+    if (response.ok) {
+      localStorage.removeItem("token")
+      const json = await response.json();
+      console.log(json);
+      console.log(user.userId);
+      toast.success("Account deleted successfully")
+      navigate("/")
+    } else {
+      throw new Error("Failed to delete account");
     }
   };
 
@@ -165,12 +187,12 @@ const UserProfile = (props) => {
                     Settings
                   </Link>
 
-                  <Link
-                    to="deleteAccount"
+                  <button
+                    onClick={deleteUserAccount}
                     className={`btn btn-success mt-5 text-light link-offset-2`}
                   >
                     Delete Account
-                  </Link>
+                  </button>
                 </div>
               </div>
             </div>

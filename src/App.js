@@ -40,7 +40,7 @@ function App() {
 
   const [progress, setProgress] = useState(0)
   document.body.style.backgroundColor = `${mode === "Dark" ? "rgb(17 24 39)" : "#D6D5DB"
-    }`;
+  }`;
 
   return (
     // <AuthState>

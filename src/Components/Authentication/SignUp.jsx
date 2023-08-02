@@ -5,8 +5,8 @@ import { toast } from "react-hot-toast";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const [credentials, setCredentials] = useState({
     name: "",
     email: "",
@@ -171,7 +171,6 @@ const SignUp = (props) => {
                 We will never share your credentials with anyone else
               </small>
             </div>
-
             <div className="">
               <button
                 className={`mt-4 px-4 py-2 btn btn-outline-${

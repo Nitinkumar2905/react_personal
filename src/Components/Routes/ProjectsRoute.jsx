@@ -10,12 +10,7 @@ const ProjectRoute = (props) => {
   const token = localStorage.getItem("token");
   const context = useContext(ProjectContext);
 
-  const {
-    projects,
-    loading,
-    saveProject,
-    updateProjects,
-  } = context;
+  const { projects, loading, saveProject, updateProjects} = context;
 
   useEffect(() => {
     updateProjects();

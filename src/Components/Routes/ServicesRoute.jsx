@@ -11,9 +11,6 @@ const ServicesRoute = (props) => {
     props.setProgress(0);
     if (!localStorage.getItem("token")) {
       navigate("/login");
-      // if(localStorage.getItem("token")){
-      //   navigate("/connect")
-      // }
       props.setProgress(100);
       toast("Please login to continue", "warning", {
         style: {

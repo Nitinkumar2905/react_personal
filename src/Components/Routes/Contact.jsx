@@ -1,7 +1,44 @@
 import React from "react";
 import "../styles/Contact.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Contact = (props) => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    userId: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("token");
+  const host = "https://nitinkumar-backend.vercel.app"
+  // const host = "http://localhost:8000";
+
+  const userDetails = async () => {
+    if (token) {
+      const response = await fetch(`${host}/api/auth/getUser`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      });
+      if (response.ok) {
+        const json = await response.json();
+        setUser({
+          name: json.user.name,
+          email: json.user.email,
+          userId: json.user._id,
+        });
+        setLoading(true);
+      } else {
+        throw new Error("Failed to fetch user details");
+      }
+    }
+  };
+  useEffect(() => {
+    userDetails();
+  }, []);
   return (
     <>
       <div
@@ -63,6 +100,8 @@ const Contact = (props) => {
                             : "1px solid black"
                         }`,
                       }}
+                      value={user.name}
+                      readOnly
                       required
                       name="name"
                       minLength={4}
@@ -91,6 +130,8 @@ const Contact = (props) => {
                             : "1px solid black"
                         }`,
                       }}
+                      value={user.email}
+                      readOnly
                       name="email"
                       required
                       type="email"
@@ -228,9 +269,7 @@ const Contact = (props) => {
                   style={{ width: "fit-content" }}
                 >
                   <span className="ms-3 fs-2 ">Hire me on : &nbsp;</span>
-                  <button
-                    className={`fs-5 btn btn-outline-success`}
-                  >
+                  <button className={`fs-5 btn btn-outline-success`}>
                     <a
                       style={{ textDecoration: "none", color: "inherit" }}
                       rel="noreferrer"

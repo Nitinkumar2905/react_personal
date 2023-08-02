@@ -4,19 +4,14 @@ import "../styles/Projects.css";
 import ProjectContext from "../../Context/projects/ProjectContext";
 
 const UserSavedProjects = (props) => {
-  const {
-    savedProjects,
-    removeProject,
-    fetchSavedProjects,
-    loading,
-    // setLoading,
-  } = useContext(ProjectContext);
+  const { savedProjects, removeProject, fetchSavedProjects } = useContext(
+    ProjectContext
+  );
 
   // Fetch all saved projects
   useEffect(() => {
     if (localStorage.getItem("token")) {
       fetchSavedProjects();
-      // setLoading(false);
     }
     // eslint-disable-next-line
   }, []);

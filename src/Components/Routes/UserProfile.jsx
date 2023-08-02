@@ -6,7 +6,7 @@ import ProjectContext from "../../Context/projects/ProjectContext";
 import { toast } from "react-hot-toast";
 import { useRef } from "react";
 import "../styles/UserProfile.css";
-import loadingbar from '../images/loadingt.gif'
+import loadingbar from "../images/loadingt.gif";
 
 const UserProfile = (props) => {
   const context = useContext(ProjectContext);
@@ -15,7 +15,7 @@ const UserProfile = (props) => {
   const navigate = useNavigate();
   const ref = useRef(null);
   const refClose = useRef(null);
-
+  
   const host = "https://nitinkumar-backend.vercel.app";
   // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
@@ -32,7 +32,6 @@ const UserProfile = (props) => {
       });
       if (response.ok) {
         const json = await response.json();
-
         setUser({
           name: json.user.name,
           email: json.user.email,
@@ -142,7 +141,13 @@ const UserProfile = (props) => {
                 </div>
               ) : (
                 // <span>loading user data</span>
-                <div className="text-center"><img style={{width:'20px',height:'20px'}} src={loadingbar} alt="" /></div>
+                <div className="text-center">
+                  <img
+                    style={{ width: "20px", height: "20px" }}
+                    src={loadingbar}
+                    alt=""
+                  />
+                </div>
               )}
             </div>
 
@@ -239,7 +244,7 @@ const UserProfile = (props) => {
                           <button
                             ref={refClose}
                             type="button"
-                            className="btn btn-secondary"
+                            className="btn btn-outline-success"
                             data-bs-dismiss="modal"
                           >
                             Cancel
@@ -247,7 +252,7 @@ const UserProfile = (props) => {
                           <button
                             onClick={deleteUserAccount}
                             type="button"
-                            className="btn btn-primary"
+                            className="btn btn-success"
                           >
                             Delete
                           </button>

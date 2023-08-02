@@ -1,7 +1,44 @@
 import React from "react";
 import "../styles/Connect.css";
+import { useState } from "react";
+import { useEffect } from "react";
 
 const Connect = (props) => {
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    userId: "",
+  });
+  const [loading, setLoading] = useState(false);
+  const token = localStorage.getItem("token");
+  const host = "https://nitinkumar-backend.vercel.app"
+  // const host = "http://localhost:8000";
+
+  const userDetails = async () => {
+    if (token) {
+      const response = await fetch(`${host}/api/auth/getUser`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          "auth-token": token,
+        },
+      });
+      if (response.ok) {
+        const json = await response.json();
+        setUser({
+          name: json.user.name,
+          email: json.user.email,
+          userId: json.user._id,
+        });
+        setLoading(true);
+      } else {
+        throw new Error("Failed to fetch user details");
+      }
+    }
+  };
+  useEffect(() => {
+    userDetails();
+  }, []);
   return (
     <>
       <div
@@ -49,6 +86,8 @@ const Connect = (props) => {
                     } border border-${
                       props.mode === "Dark" ? "white" : "black"
                     }`}
+                    value={user.name}
+                    readOnly
                     type="text"
                     name="name"
                   />
@@ -63,6 +102,8 @@ const Connect = (props) => {
                     } border border-${
                       props.mode === "Dark" ? "white" : "black"
                     }`}
+                    readOnly
+                    value={user.email}
                     name="email"
                     type="email"
                   />

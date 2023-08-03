@@ -11,9 +11,6 @@ import { toast } from "react-hot-toast";
 const Navbar = (props) => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [user, setUser] = useState({ name: "", email: "" });
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
 
   const handleLogOut = () => {
     props.setProgress(0);
@@ -26,7 +23,6 @@ const Navbar = (props) => {
       },
     });
     localStorage.removeItem("token");
-
     props.setProgress(100);
   };
 
@@ -35,9 +31,6 @@ const Navbar = (props) => {
     props.setProgress(0);
     if (!localStorage.getItem("token")) {
       navigate("/login");
-      // if(localStorage.getItem("token")){
-      //   navigate("/connect")
-      // }
       props.setProgress(100);
       toast("Please login to continue", "warning", {
         style: {
@@ -51,62 +44,34 @@ const Navbar = (props) => {
       navigate("/connect");
     }
   };
-  // const contact = (e) => {
-  //   e.preventDefault();
-  //   props.setProgress(0);
-  //   if (!localStorage.getItem("token")) {
-  //     navigate("/login");
-  //     // if(localStorage.getItem("token")){
-  //     //   navigate("/connect")
-  //     // }
-  //     props.setProgress(100);
-  //     toast("Please login to continue", "warning", {
-  //       style: {
-  //         borderRadius: "10px",
-  //         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-  //         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-  //       },
-  //     });
-  //   } else {
-  //     props.setProgress(100);
-  //     navigate("/contact");
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   handleUserInfo();
-  //   // eslint-disable-next-line
-  // }, []);
-
-  // const handleUserInfo = async () => {
-  //   if (localStorage.getItem("token")) {
-  //     const response = await fetch(`${host}/api/auth/getUser`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application",
-  //         "auth-token": localStorage.getItem("token"),
-  //       },
-  //     });
-
-  //     if (response.ok) {
-  //       const json = await response.json();
-  //       setUser({
-  //         name: json.user.name,
-  //         email: json.user.email,
-  //         userId: json.user._id,
-  //       });
-  //     } else {
-  //       throw new Error("Failed to fetch user details");
-  //     }
-  //   }
-  // };
+  const contact = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/contact");
+    }
+  };
 
   return (
     <>
       <nav
-        className={`pt-4 shadow-${props.mode === "Light" ? "lg" : "nav"
-          } navbar navbar-expand-lg bg-${props.mode === "Dark" ? "dark-emphasis" : "light"
-          } navbar-${props.mode}`}
+      id="main-navbar"
+        className={`shadow-${
+          props.mode === "Light" ? "lg" : "nav"
+        } navbar navbar-expand-lg bg-${
+          props.mode === "Dark" ? "dark-emphasis" : "light"
+        } navbar-${props.mode}`}
         style={{ fontFamily: "sans-serif" }}
       >
         <div className="container-fluid">
@@ -116,16 +81,18 @@ const Navbar = (props) => {
           >
             <img src={logo} alt="" />
             <span
-              className={`head-text mx-3 text-${props.mode === "Light" ? "dark" : "light"
-                }`}
+              className={`head-text mx-3 text-${
+                props.mode === "Light" ? "dark" : "light"
+              }`}
             >
               Nitin kumar
             </span>
           </Link>
 
           <button
-            className={`navbar-toggler border border-${props.mode === "Light" ? "dark" : "light"
-              } bg-light`}
+            className={`navbar-toggler border border-${
+              props.mode === "Light" ? "dark" : "light"
+            } bg-light`}
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -139,8 +106,13 @@ const Navbar = (props) => {
             <ul className="navbar-nav d-flex flex-end ms-auto me-5 mb-2 mb-lg-0">
               <li className="nav-item">
                 <Link
-                  className={`mx-1 nav-link ${location.pathname==="/"?"text-decoration-underline":"text-decoration-none"} link-underline-success link-offset-3 text-${props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                  className={`mx-1 nav-link ${
+                    location.pathname === "/"
+                      ? "text-decoration-underline"
+                      : "text-decoration-none"
+                  } link-underline-success link-offset-3 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
                   aria-current="page"
                   to="/"
                 >
@@ -149,8 +121,13 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`mx-1 nav-link ${location.pathname==="/projects"?"text-decoration-underline":"text-decoration-none"} link-underline-success link-offset-3 text-${props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                  className={`mx-1 nav-link ${
+                    location.pathname === "/projects"
+                      ? "text-decoration-underline"
+                      : "text-decoration-none"
+                  } link-underline-success link-offset-3 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
                   to="/projects"
                 >
                   Projects
@@ -158,8 +135,13 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`mx-1 nav-link ${location.pathname==="/services"?"text-decoration-underline":"text-decoration-none"} link-underline-success link-offset-3 text-${props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                  className={`mx-1 nav-link ${
+                    location.pathname === "/services"
+                      ? "text-decoration-underline"
+                      : "text-decoration-none"
+                  } link-underline-success link-offset-3 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
                   to="/services"
                 >
                   Services
@@ -167,8 +149,14 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  className={`mx-1 nav-link ${location.pathname==="/contact"?"text-decoration-underline":"text-decoration-none"} link-underline-success link-offset-3 text-${props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                  onClick={contact}
+                  className={`mx-1 nav-link ${
+                    location.pathname === "/contact"
+                      ? "text-decoration-underline"
+                      : "text-decoration-none"
+                  } link-underline-success link-offset-3 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
                   to="/contact"
                 >
                   Contact
@@ -177,8 +165,13 @@ const Navbar = (props) => {
               <li className="nav-item">
                 <Link
                   onClick={connect}
-                  className={`mx-1 nav-link ${location.pathname==="/connect"?"text-decoration-underline":"text-decoration-none"} link-underline-success link-offset-3 text-${props.mode === "Dark" ? "light" : "dark"
-                    }`}
+                  className={`mx-1 nav-link ${
+                    location.pathname === "/connect"
+                      ? "text-decoration-underline"
+                      : "text-decoration-none"
+                  } link-underline-success link-offset-3 text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
                   to="/connect"
                 >
                   Work With Me
@@ -196,10 +189,7 @@ const Navbar = (props) => {
               {/*  */}
               {!localStorage.getItem("token") ? (
                 <div className={`mx-2`}>
-                  <Link
-                    to="/login"
-                    className={`me-1 btn btn-success`}
-                  >
+                  <Link to="/login" className={`me-1 btn btn-success`}>
                     SignIn
                   </Link>
                   <Link
@@ -215,8 +205,9 @@ const Navbar = (props) => {
                   <div
                     // onClick={handleUserInfo}
                     to="/UserInfo"
-                    className={`mx-2 text-${props.mode === "Dark" ? "light" : "dark"
-                      } text-decoration-none `}
+                    className={`mx-2 text-${
+                      props.mode === "Dark" ? "light" : "dark"
+                    } text-decoration-none `}
                     style={{ cursor: "default" }}
                   >
                     {localStorage.getItem("token") && (

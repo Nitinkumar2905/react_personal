@@ -11,8 +11,8 @@ const Contact = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
-  const host = "https://nitinkumar-backend.vercel.app"
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app"
+  const host = "http://localhost:8000";
 
   const userDetails = async () => {
     if (token) {
@@ -89,11 +89,11 @@ const Contact = (props) => {
                       Name:
                     </label>
                     <input
-                      className={`rounded my-1 text-${
+                      className={`bg-dark-subtle rounded my-1 text-${
                         props.mode === "Dark" ? "light" : "dark"
                       } p-2`}
                       style={{
-                        backgroundColor: "inherit",
+                        // backgroundColor: "inherit",
                         border: `${
                           props.mode === "Dark"
                             ? "1px solid white"
@@ -119,11 +119,11 @@ const Contact = (props) => {
                       Email:
                     </label>
                     <input
-                      className={`rounded my-1 text-${
+                      className={`bg-dark-subtle rounded my-1 text-${
                         props.mode === "Dark" ? "light" : "dark"
                       } p-2`}
                       style={{
-                        backgroundColor: "inherit",
+                        // backgroundColor: "inherit",
                         border: `${
                           props.mode === "Dark"
                             ? "1px solid white"

@@ -11,8 +11,8 @@ const Connect = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
-  const host = "https://nitinkumar-backend.vercel.app"
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app"
+  const host = "http://localhost:8000";
 
   const userDetails = async () => {
     if (token) {
@@ -81,7 +81,7 @@ const Connect = (props) => {
                   <input
                     required
                     placeholder="Name"
-                    className={`py-2 px-2 my-1 rounded text-${
+                    className={`py-2 px-2 my-1 bg-dark-subtle rounded text-${
                       props.mode === "Dark" ? "light" : "dark"
                     } border border-${
                       props.mode === "Dark" ? "white" : "black"
@@ -97,7 +97,7 @@ const Connect = (props) => {
                   <input
                     required
                     placeholder="sample@gmail.com"
-                    className={`py-2 px-2 my-1 rounded text-${
+                    className={`py-2 px-2 my-1 bg-dark-subtle rounded text-${
                       props.mode === "Dark" ? "light" : "dark"
                     } border border-${
                       props.mode === "Dark" ? "white" : "black"

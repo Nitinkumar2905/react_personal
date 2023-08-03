@@ -2,6 +2,7 @@ import { useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import "../styles/SignUp.css";
 import { toast } from "react-hot-toast";
+import loadingIcon from "../images/loadingt.gif";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
@@ -13,11 +14,13 @@ const SignUp = (props) => {
     password: "",
     cpassword: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
+    setIsLoading(true);
     const { name, email, password, cpassword } = credentials;
 
     if (password === cpassword) {
@@ -40,14 +43,10 @@ const SignUp = (props) => {
         }
 
         const json = await response.json();
-
+        setIsLoading(false);
         if (json.success) {
           localStorage.setItem("token", json.authToken);
-          if (navigate(-1) === "/login" && "/connect") {
-            navigate("/");
-          } else {
-            navigate(-1);
-          }
+          navigate("/");
           toast.success("Account created successfully!", {
             style: {
               borderRadius: "10px",
@@ -74,6 +73,7 @@ const SignUp = (props) => {
         });
       }
     } else {
+      setIsLoading(false)
       toast.error("Password conflict!", {
         style: {
           borderRadius: "10px",
@@ -86,104 +86,115 @@ const SignUp = (props) => {
 
   return (
     <>
-      <div
-        className={`SignUp-box text-${
-          props.mode === "Dark" ? "light" : "dark"
-        } text-center`}
-      >
-        <h3>New user ? SignUp Now</h3>
+      {!isLoading ? (
         <div
-          className={`SignUp-form border border-${
+          className={`SignUp-box text-${
             props.mode === "Dark" ? "light" : "dark"
-          } rounded p-3`}
+          } text-center`}
         >
-          <form onSubmit={handleSignUp}>
-            <div className={`SignUp-item`}>
-              <label htmlFor="name">Name:</label>
-              <input
-                className={`text-${
-                  props.mode === "Dark" ? "light" : "dark"
-                } border rounded border-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }  p-2`}
-                required
-                value={credentials.name}
-                onChange={onChange}
-                type="text"
-                name="name"
-                id="name"
-                placeholder="Name"
-              />
-            </div>
-            <div className={`SignUp-item`}>
-              <label htmlFor="email">Email address:</label>
-              <input
-                className={`text-${
-                  props.mode === "Dark" ? "light" : "dark"
-                } border rounded border-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }  p-2`}
-                required
-                value={credentials.email}
-                onChange={onChange}
-                type="email"
-                name="email"
-                id="email"
-                placeholder="E mail"
-              />
-            </div>
-            <div className={`SignUp-item`}>
-              <label htmlFor="password">Set Password:</label>
-              <input
-                className={`text-${
-                  props.mode === "Dark" ? "light" : "dark"
-                } border rounded border-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }  p-2`}
-                required
-                value={credentials.password}
-                onChange={onChange}
-                minLength={8}
-                type="password"
-                name="password"
-                id="password"
-                placeholder="Password (atleast 8 characters)"
-              />
-            </div>
-            <div className={`SignUp-item`}>
-              <label htmlFor="cpassword">Confirm Password:</label>
-              <input
-                className={`text-${
-                  props.mode === "Dark" ? "light" : "dark"
-                } border rounded border-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }  p-2`}
-                required
-                value={credentials.cpassword}
-                onChange={onChange}
-                minLength={8}
-                type="password"
-                name="cpassword"
-                id="cpassword"
-                placeholder="Must be same"
-              />
-              <small className="text-start mt-2 ps-2">
-                We will never share your credentials with anyone else
-              </small>
-            </div>
-            <div className="">
-              <button
-                className={`mt-4 px-4 py-2 btn btn-outline-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }`}
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </form>
+          <h3>New user ? SignUp Now</h3>
+          <div
+            className={`SignUp-form border border-${
+              props.mode === "Dark" ? "light" : "dark"
+            } rounded p-3`}
+          >
+            <form onSubmit={handleSignUp}>
+              <div className={`SignUp-item`}>
+                <label htmlFor="name">Name:</label>
+                <input
+                  className={`text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } border rounded border-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }  p-2`}
+                  required
+                  value={credentials.name}
+                  onChange={onChange}
+                  type="text"
+                  name="name"
+                  id="name"
+                  placeholder="Name"
+                />
+              </div>
+              <div className={`SignUp-item`}>
+                <label htmlFor="email">Email address:</label>
+                <input
+                  className={`text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } border rounded border-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }  p-2`}
+                  required
+                  value={credentials.email}
+                  onChange={onChange}
+                  type="email"
+                  name="email"
+                  id="email"
+                  placeholder="E mail"
+                />
+              </div>
+              <div className={`SignUp-item`}>
+                <label htmlFor="password">Set Password:</label>
+                <input
+                  className={`text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } border rounded border-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }  p-2`}
+                  required
+                  value={credentials.password}
+                  onChange={onChange}
+                  minLength={8}
+                  type="password"
+                  name="password"
+                  id="password"
+                  placeholder="Password (atleast 8 characters)"
+                />
+              </div>
+              <div className={`SignUp-item`}>
+                <label htmlFor="cpassword">Confirm Password:</label>
+                <input
+                  className={`text-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  } border rounded border-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }  p-2`}
+                  required
+                  value={credentials.cpassword}
+                  onChange={onChange}
+                  minLength={8}
+                  type="password"
+                  name="cpassword"
+                  id="cpassword"
+                  placeholder="Must be same"
+                />
+                <small className="text-start mt-2 ps-2">
+                  We will never share your credentials with anyone else
+                </small>
+              </div>
+              <div className="">
+                <button
+                  className={`mt-4 px-4 py-2 btn btn-outline-${
+                    props.mode === "Dark" ? "light" : "dark"
+                  }`}
+                  type="submit"
+                >
+                  Submit
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
-      </div>
+      ) : (
+        <div className="d-flex justify-content-center" style={{height:'76vh'}}>
+          <img
+          className="m-auto"
+            src={loadingIcon}
+            style={{ height: "3rem", width: "3rem" }}
+            alt=""
+          />
+        </div>
+      )}
     </>
   );
 };

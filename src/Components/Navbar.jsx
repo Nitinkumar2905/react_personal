@@ -2,8 +2,8 @@ import React from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./styles/Navbar.css";
 import logo from "./images/sunset.jpg";
-import dark from "./images/dark mode.png";
-import light from "./images/light mode.png";
+import moon from "./images/dark mode.png";
+import sun from "./images/light mode.png";
 import userLight from "./images/user-white.png";
 import userDark from "./images/user-dark.png";
 import { toast } from "react-hot-toast";
@@ -181,7 +181,7 @@ const Navbar = (props) => {
             <div className={`user-button`}>
               <div onClick={props.toggleMode} style={{ cursor: "pointer" }}>
                 <img
-                  src={`${props.mode === "Dark" ? light : dark}`}
+                  src={`${props.mode === "Dark" ? sun : moon}`}
                   alt=""
                   style={{ height: "35px", width: "35px" }}
                 />

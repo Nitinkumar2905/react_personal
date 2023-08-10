@@ -7,6 +7,10 @@ const Home = (props) => {
   return (
     <>
       <Hero mode={props.mode} setProgress={props.setProgress}></Hero>
+      {/* <HeroChakraUI
+        mode={props.mode}
+        setProgress={props.setProgress}
+      ></HeroChakraUI> */}
       <Projects mode={props.mode} />
       <Services mode={props.mode} setProgress={props.setProgress} />
     </>

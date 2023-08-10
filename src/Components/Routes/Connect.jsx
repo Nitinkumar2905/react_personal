@@ -11,8 +11,8 @@ const Connect = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
-  const host = "https://nitinkumar-backend.vercel.app"
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app"
+  const host = "http://localhost:8000";
 
   const userDetails = async () => {
     if (token) {

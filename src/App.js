@@ -1,3 +1,4 @@
+import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
@@ -32,15 +33,15 @@ function App() {
   }, []); // Run this effect only once on component mount
 
   const toggleMode = () => {
-   const newMode=mode==="Light"?"Dark":"Light";
-  //  save the updated theme mode to local storage
-  localStorage.setItem("mode",newMode);
-  setMode(newMode)
+    const newMode = mode === "Light" ? "Dark" : "Light";
+    //  save the updated theme mode to local storage
+    localStorage.setItem("mode", newMode);
+    setMode(newMode)
   };
 
   const [progress, setProgress] = useState(0)
   document.body.style.backgroundColor = `${mode === "Dark" ? "rgb(17 24 39)" : "#D6D5DB"
-  }`;
+    }`;
 
   return (
     // <AuthState>

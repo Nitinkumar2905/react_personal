@@ -77,19 +77,17 @@ const Hero = (props) => {
             </span>
           </div>
 
-          <div
-            className={`hero-buttons d-flex align-items-center flex-row`}
-          >
+          <div className={`hero-buttons d-flex align-items-center flex-row`}>
             <Link
-            // onClick={hireNow}
-            to="/contact"
+              // onClick={hireNow}
+              to="/contact"
               className={`m-2 sm:mx-2 sm:fs-5 button-jump1 btn btn-success`}
             >
               Hire Now
             </Link>
 
             <button
-            onClick={connect}
+              onClick={connect}
               className={`m-2 sm:mx-2 sm:fs-5 button-jump3 btn btn-outline-success`}
             >
               Work With Me

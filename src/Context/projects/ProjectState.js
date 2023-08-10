@@ -7,9 +7,10 @@ const ProjectState = (props) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(false);
   const [savedProjects, setSavedProjects] = useState([]);
+  const [isProjectSaved, setIsProjectSaved] = useState(false);
 
-    const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
   const updateProjects = async () => {
@@ -40,6 +41,8 @@ const ProjectState = (props) => {
       if (response.ok) {
         // const updatedSavedProjects = [...savedProjects, projectId];
         // setSavedProjects(updatedSavedProjects);
+        setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, true));
+        setIsProjectSaved(true)
         toast.success("Project is saved in collection", {
           style: {
             borderRadius: "10px",
@@ -69,8 +72,8 @@ const ProjectState = (props) => {
   };
 
   const fetchSavedProjects = async () => {
-    setLoading(true)
-    if(token){
+    setLoading(true);
+    if (token) {
       try {
         const response = await fetch(`${host}/api/project/fetchSavedProjects`, {
           method: "GET",
@@ -79,7 +82,7 @@ const ProjectState = (props) => {
             "auth-token": token,
           },
         });
-  
+
         if (response.ok) {
           const data = await response.json();
           setSavedProjects(data.SavedProjects);
@@ -90,7 +93,7 @@ const ProjectState = (props) => {
         console.error(error);
       }
     }
-    setLoading(false)
+    setLoading(false);
   };
 
   const removeProject = async (projectId) => {
@@ -104,6 +107,9 @@ const ProjectState = (props) => {
       });
 
       if (response.ok) {
+        // setIsProjectSaved(false);
+        setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, false));
+
         toast.success("Project removed from collection", {
           style: {
             borderRadius: "10px",
@@ -156,6 +162,8 @@ const ProjectState = (props) => {
         savedProjects,
         fetchSavedProjects,
         removeProject,
+        isProjectSaved,
+        setIsProjectSaved
       }}
     >
       {props.children}

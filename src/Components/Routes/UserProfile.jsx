@@ -16,8 +16,8 @@ const UserProfile = (props) => {
   const ref = useRef(null);
   const refClose = useRef(null);
   
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
 
@@ -163,20 +163,12 @@ const UserProfile = (props) => {
               </h5>
               <Link
                 to="savedProjects"
-                className={`text-${
+                className={`text-decoration-underline text-${
                   props.mode === "Dark" ? "light" : "dark"
                 } link-offset-2`}
               >
                 Saved Projects
               </Link>
-              <div
-                style={{ fontSize: ".8rem" }}
-                className={`mt-2 text-${
-                  props.mode === "Dark" ? "light" : "dark"
-                }`}
-              >
-                No. of Saved Projects : {savedProjects.length}
-              </div>
             </div>
             {/* Other Links */}
             <hr className="bg-black" style={{ width: "100%" }} />

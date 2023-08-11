@@ -25,8 +25,6 @@ const ProjectRoute = (props) => {
     // esline-disable-next-line
   }, []);
 
-
-
   const handleSaveProject = async (projectId) => {
     if (!token) {
       navigate("/login");
@@ -53,7 +51,7 @@ const ProjectRoute = (props) => {
             Projects
           </h1>
 
-          {!loading ? (
+          {loading ? (
             <div
               className={`text-${
                 props.mode === "Light" ? "dark" : "light"
@@ -65,58 +63,68 @@ const ProjectRoute = (props) => {
                   const key = uuidv4();
                   return (
                     <div className="project-map" key={key}>
-                    <div
-                      className={`my-2 project-item ${
-                        props.mode === "Light" ? "itemLight" : "itemDark"
-                      } rounded`}>
                       <div
-                        style={{ minHeight: "43vh" }}
-                        className="mt-4 d-flex flex-column align-items-start mx-3">
-                        <button
-                          style={{ cursor: "default" }}
-                          className={`btn text-${
-                            props.mode === "Dark" ? "light" : "dark"
-                          } border-${props.mode === "Dark" ? "light" : "dark"}`}>
-                          Id : #{project.projectId}
-                        </button>
-            
-                        <h4
-                          className={`text-start text-decoration-underline underline-link-${
-                            props.mode === "Dark" ? "light" : "dark"
-                          } link-offset-2 my-3 mx-auto w-100 text-${
-                            props.mode === "Light" ? "dark" : "light"
-                          }`}>
-                          {project.name}
-                        </h4>
-                        <p
-                          className={`text-start text-${
-                            props.mode === "Light" ? "dark" : "light"
-                          }`}>
-                          {project.description}
-                        </p>
-                        <div>
-                          <Link
-                            to={`${project.gitHub_Url}`}
-                            target="_blank"
-                            className={`my-2 me-2 btn btn-success`}>
-                            GitHub
-                          </Link>
+                        className={`my-2 project-item ${
+                          props.mode === "Light" ? "itemLight" : "itemDark"
+                        } rounded`}
+                      >
+                        <div
+                          style={{ minHeight: "43vh" }}
+                          className="mt-4 d-flex flex-column align-items-start mx-3"
+                        >
                           <button
-                            onClick={() => handleSaveProject(project.projectId)}
-                            className={`my-2 ms-2 btn btn-outline-success`}
-                            // disabled
+                            style={{ cursor: "default" }}
+                            className={`btn text-${
+                              props.mode === "Dark" ? "light" : "dark"
+                            } border-${
+                              props.mode === "Dark" ? "light" : "dark"
+                            }`}
                           >
-                            Save
+                            Id : #{project.projectId}
                           </button>
+
+                          <h4
+                            className={`text-start text-decoration-underline underline-link-${
+                              props.mode === "Dark" ? "light" : "dark"
+                            } link-offset-2 my-3 mx-auto w-100 text-${
+                              props.mode === "Light" ? "dark" : "light"
+                            }`}
+                          >
+                            {project.name}
+                          </h4>
+                          <p
+                            className={`text-start text-${
+                              props.mode === "Light" ? "dark" : "light"
+                            }`}
+                          >
+                            {project.description}
+                          </p>
+                          <div>
+                            <Link
+                              to={`${project.gitHub_Url}`}
+                              target="_blank"
+                              className={`my-2 me-2 btn btn-success`}
+                            >
+                              GitHub
+                            </Link>
+                            <button
+                              onClick={() =>
+                                handleSaveProject(project.projectId)
+                              }
+                              className={`my-2 ms-2 btn btn-outline-success`}
+                              // disabled
+                            >
+                              Save
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   );
                 })}
             </div>
           ) : (
-            <div className="project-main mt-5">
+            <div className="mx-auto mt-5" style={{width:'fit-content'}}>
               <img className="" src={loadingIcon} alt="" />
             </div>
           )}

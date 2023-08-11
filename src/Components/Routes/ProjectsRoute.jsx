@@ -116,8 +116,8 @@ const ProjectRoute = (props) => {
                 })}
             </div>
           ) : (
-            <div className="mt-5">
-              <img src={loadingIcon} alt="" />
+            <div className="project-content mt-5">
+              <img className="" src={loadingIcon} alt="" />
             </div>
           )}
         </div>

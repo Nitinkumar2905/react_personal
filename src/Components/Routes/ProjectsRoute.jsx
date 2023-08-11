@@ -51,7 +51,7 @@ const ProjectRoute = (props) => {
             Projects
           </h1>
 
-          {loading ? (
+          {!loading ? (
             <div
               className={`text-${
                 props.mode === "Light" ? "dark" : "light"

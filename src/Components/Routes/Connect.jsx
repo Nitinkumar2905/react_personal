@@ -11,8 +11,8 @@ const Connect = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
-  // const host = "https://nitinkumar-backend.vercel.app"
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app"
+  // const host = "http://localhost:8000";
 
   const userDetails = async () => {
     if (token) {
@@ -112,7 +112,7 @@ const Connect = (props) => {
                   <label htmlFor="phone">Mobile Number:</label>
                   <input
                     required
-                    placeholder="+91 00000000000"
+                    placeholder="00000000000"
                     className={`py-2 px-2 my-1 rounded text-${
                       props.mode === "Dark" ? "light" : "dark"
                     } border border-${

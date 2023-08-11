@@ -6,35 +6,29 @@ import { toast } from "react-hot-toast";
 
 const Hero = (props) => {
   const navigate = useNavigate();
-  // const hireNow = (e) => {
-  //   e.preventDefault();
-  //   props.setProgress(0);
-  //   if (!localStorage.getItem("token")) {
-  //     navigate("/login");
-  //     // if(localStorage.getItem("token")){
-  //     //   navigate("/connect")
-  //     // }
-  //     props.setProgress(100);
-  //     toast("Please login to continue", "warning", {
-  //       style: {
-  //         borderRadius: "10px",
-  //         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-  //         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-  //       },
-  //     });
-  //   } else {
-  //     props.setProgress(100);
-  //     navigate("/contact");
-  //   }
-  // };
   const connect = (e) => {
     e.preventDefault();
     props.setProgress(0);
     if (!localStorage.getItem("token")) {
       navigate("/login");
-      // if(localStorage.getItem("token")){
-      //   navigate("/connect")
-      // }
+      props.setProgress(100);
+      toast("Please login to continue", "warning", {
+        style: {
+          borderRadius: "10px",
+          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+        },
+      });
+    } else {
+      props.setProgress(100);
+      navigate("/connect");
+    }
+  };
+  const contact = (e) => {
+    e.preventDefault();
+    props.setProgress(0);
+    if (!localStorage.getItem("token")) {
+      navigate("/login");
       props.setProgress(100);
       toast("Please login to continue", "warning", {
         style: {
@@ -52,7 +46,7 @@ const Hero = (props) => {
     <>
       <div
         className={`d-flex align-items-center justify-content-center`}
-        style={{ marginTop: "5rem", fontFamily: "sans-serif" }}
+        style={{ marginTop: "5rem", fontFamily: "sans-serif",height:'68vh' }}
       >
         <div className={`hero-content`}>
           <p
@@ -79,7 +73,7 @@ const Hero = (props) => {
 
           <div className={`hero-buttons d-flex align-items-center flex-row`}>
             <Link
-              // onClick={hireNow}
+              onClick={contact}
               to="/contact"
               className={`m-2 sm:mx-2 sm:fs-5 button-jump1 btn btn-success`}
             >

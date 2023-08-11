@@ -11,8 +11,8 @@ const Contact = (props) => {
   });
   const [loading, setLoading] = useState(false);
   const token = localStorage.getItem("token");
-  // const host = "https://nitinkumar-backend.vercel.app"
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app"
+  // const host = "http://localhost:8000";
 
   const userDetails = async () => {
     if (token) {
@@ -89,19 +89,17 @@ const Contact = (props) => {
                       Name:
                     </label>
                     <input
-                      className={`bg-dark-subtle rounded my-1 text-${
+                      className={`rounded my-1 text-${
                         props.mode === "Dark" ? "light" : "dark"
                       } p-2`}
                       style={{
-                        // backgroundColor: "inherit",
+                        backgroundColor: "inherit",
                         border: `${
                           props.mode === "Dark"
                             ? "1px solid white"
                             : "1px solid black"
                         }`,
                       }}
-                      value={user.name}
-                      readOnly
                       required
                       name="name"
                       minLength={4}
@@ -119,19 +117,17 @@ const Contact = (props) => {
                       Email:
                     </label>
                     <input
-                      className={`bg-dark-subtle rounded my-1 text-${
+                      className={`rounded my-1 text-${
                         props.mode === "Dark" ? "light" : "dark"
                       } p-2`}
                       style={{
-                        // backgroundColor: "inherit",
+                        backgroundColor: "inherit",
                         border: `${
                           props.mode === "Dark"
                             ? "1px solid white"
                             : "1px solid black"
                         }`,
                       }}
-                      value={user.email}
-                      readOnly
                       name="email"
                       required
                       type="email"

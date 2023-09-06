@@ -44,7 +44,7 @@ const Login = (props) => {
         },
       });
     } else {
-      setIsLoading(false)
+      setIsLoading(false);
       props.setProgress(100);
       toast.error("Invalid credentials !", {
         style: {
@@ -146,7 +146,7 @@ const Login = (props) => {
       ) : (
         <div className="login-box">
           <img
-          className="mx-auto"
+            className="mx-auto"
             style={{ height: "3rem", width: "3rem" }}
             src={loadingIcon}
             alt=""

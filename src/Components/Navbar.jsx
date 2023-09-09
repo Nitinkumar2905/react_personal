@@ -44,24 +44,24 @@ const Navbar = (props) => {
       navigate("/connect");
     }
   };
-  const contact = (e) => {
-    e.preventDefault();
-    props.setProgress(0);
-    if (!localStorage.getItem("token")) {
-      navigate("/login");
-      props.setProgress(100);
-      toast("Please login to continue", "warning", {
-        style: {
-          borderRadius: "10px",
-          background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-          color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-        },
-      });
-    } else {
-      props.setProgress(100);
-      navigate("/contact");
-    }
-  };
+  // const contact = (e) => {
+  //   e.preventDefault();
+  //   props.setProgress(0);
+  //   if (!localStorage.getItem("token")) {
+  //     navigate("/login");
+  //     props.setProgress(100);
+  //     toast("Please login to continue", "warning", {
+  //       style: {
+  //         borderRadius: "10px",
+  //         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
+  //         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
+  //       },
+  //     });
+  //   } else {
+  //     props.setProgress(100);
+  //     navigate("/contact");
+  //   }
+  // };
 
   return (
     <>
@@ -149,7 +149,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  onClick={contact}
+                  // onClick={contact}
                   className={`mx-1 nav-link ${
                     location.pathname === "/contact"
                       ? "text-decoration-underline"

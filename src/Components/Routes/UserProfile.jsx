@@ -230,7 +230,7 @@ const UserProfile = (props) => {
                           ></button>
                         </div>
                         <div className="modal-body ">
-                          <span>Note : This action is note reversable.</span>
+                          <span>Note : This action is not reversable.</span>
                         </div>
                         <div className="modal-footer">
                           <button

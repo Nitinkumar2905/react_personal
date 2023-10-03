@@ -173,24 +173,12 @@ const UserProfile = (props) => {
             {/* Other Links */}
             <hr className="bg-black" style={{ width: "100%" }} />
             <div className="">
-              <h5
-                className={`text-${
-                  props.mode === "Dark" ? "dark-emphasis" : "dark"
-                }`}
-              >
-                Other links
-              </h5>
-              <div className="d-flex flex-column">
-                <Link to="helpCenter" className={`text-success link-offset-2`}>
-                  Help Center
-                </Link>
-                <Link to="/settings" className={`text-success link-offset-2`}>
-                  Settings
-                </Link>
-
+              
+              <div className="mt-5 d-flex flex-column">
                 <button
                   onClick={handleDeleteModel}
-                  className={`btn btn-success mt-4 text-light link-offset-2`}
+                  
+                  className={`mt-5 btn btn-success text-light link-offset-2`}
                 >
                   Delete Account
                 </button>

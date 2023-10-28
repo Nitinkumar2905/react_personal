@@ -107,15 +107,23 @@ const ProjectRoute = (props) => {
                             >
                               GitHub
                             </Link>
+                            
                             <button
                               onClick={() =>
                                 handleSaveProject(project.projectId)
                               }
-                              className={`my-2 ms-2 btn btn-outline-success`}
+                              className={`my-2 mx-2 btn btn-outline-success`}
                               // disabled
                             >
                               Save
                             </button>
+                            {project.visit&&<Link
+                              to={`${project.visit}`}
+                              target="_blank"
+                              className={`my-2 ms-2 btn btn-success`}
+                            >
+                              Visit
+                            </Link>}
                           </div>
                         </div>
                       </div>

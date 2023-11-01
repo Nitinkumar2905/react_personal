@@ -4,9 +4,8 @@ import "../styles/Projects.css";
 import ProjectContext from "../../Context/projects/ProjectContext";
 
 const UserSavedProjects = (props) => {
-  const { savedProjects, removeProject, fetchSavedProjects } = useContext(
-    ProjectContext
-  );
+  const { savedProjects, removeProject, fetchSavedProjects } =
+    useContext(ProjectContext);
 
   // Fetch all saved projects
   useEffect(() => {
@@ -82,20 +81,30 @@ const UserSavedProjects = (props) => {
                           {project.description}
                         </p>
                         <div>
-                          <Link
+                          {project.gitHub_Url&&<Link
                             to={`${project.gitHub_Url}`}
                             target="_blank"
                             className={`my-2 me-2 btn btn-success`}
                           >
                             GitHub
-                          </Link>
+                          </Link>}
 
                           <button
                             onClick={() => removeProject(project.projectId)}
-                            className={`my-2 ms-2 btn btn-outline-success`}
+                            className={`my-2 mx-2 btn btn-outline-success`}
                           >
                             Remove
                           </button>
+
+                          {project.visit && (
+                            <Link
+                              to={`${project.visit}`}
+                              target="_blank"
+                              className={`my-2 ms-2 btn btn-success`}
+                            >
+                              Visit
+                            </Link>
+                          )}
                         </div>
                       </div>
                     </div>

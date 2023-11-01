@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect} from "react";
 import { Link, useNavigate } from "react-router-dom";
 // import "../styles/Projects.css";
 import { v4 as uuidv4 } from "uuid";
@@ -10,14 +10,12 @@ const ProjectRoute = (props) => {
   const navigate = useNavigate();
   const token = localStorage.getItem("token");
   const context = useContext(ProjectContext);
-  const [projectStatus, setProjectStatus] = useState(false);
 
   const {
     projects,
     loading,
     saveProject,
     updateProjects,
-    isProjectSaved,
   } = context;
 
   useEffect(() => {
@@ -100,13 +98,13 @@ const ProjectRoute = (props) => {
                             {project.description}
                           </p>
                           <div>
-                            <Link
+                            {project.gitHub_Url&&<Link
                               to={`${project.gitHub_Url}`}
                               target="_blank"
                               className={`my-2 me-2 btn btn-success`}
                             >
                               GitHub
-                            </Link>
+                            </Link>}
                             
                             <button
                               onClick={() =>
@@ -117,6 +115,7 @@ const ProjectRoute = (props) => {
                             >
                               Save
                             </button>
+
                             {project.visit&&<Link
                               to={`${project.visit}`}
                               target="_blank"

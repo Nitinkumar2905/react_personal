@@ -1,4 +1,3 @@
-// import { useNavigate } from "react-router-dom";
 import { toast } from "react-hot-toast";
 import ProjectContext from "./ProjectContext";
 import { useEffect, useState } from "react";
@@ -39,8 +38,6 @@ const ProjectState = (props) => {
       });
 
       if (response.ok) {
-        // const updatedSavedProjects = [...savedProjects, projectId];
-        // setSavedProjects(updatedSavedProjects);
         setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, true));
         setIsProjectSaved(true)
         toast.success("Project is saved in collection", {

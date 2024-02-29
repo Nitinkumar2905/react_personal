@@ -8,8 +8,8 @@ const ProjectState = (props) => {
   const [savedProjects, setSavedProjects] = useState([]);
   const [isProjectSaved, setIsProjectSaved] = useState(false);
 
-  const host = "https://nitinkumar-backend.vercel.app";
-  // const host = "http://localhost:8000";
+  // const host = "https://nitinkumar-backend.vercel.app";
+  const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
 
   const updateProjects = async () => {
@@ -38,8 +38,12 @@ const ProjectState = (props) => {
       });
 
       if (response.ok) {
-        setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, true));
-        setIsProjectSaved(true)
+        const projectData = await response.json()
+        // setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, true));
+        // setIsProjectSaved(true)
+        console.log(projectData);
+        setIsProjectSaved(projectData.saved.projectSave)
+        console.log(projectData.saved.projectSave);
         toast.success("Project is saved in collection", {
           style: {
             borderRadius: "10px",
@@ -106,7 +110,6 @@ const ProjectState = (props) => {
       if (response.ok) {
         // setIsProjectSaved(false);
         setIsProjectSaved(localStorage.setItem(`saved_${projectId}`, false));
-
         toast.success("Project removed from collection", {
           style: {
             borderRadius: "10px",

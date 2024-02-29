@@ -1,4 +1,3 @@
-import { ChakraProvider } from '@chakra-ui/react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./Components/Home";
 import Navbar from "./Components/Navbar";
@@ -16,6 +15,8 @@ import SavedProjects from './Components/Routes/UserSavedProjects'
 import ProjectState from "./Context/projects/ProjectState";
 import UserProfile from "./Components/Routes/UserProfile";
 import { useEffect } from "react";
+import { Analytics } from '@vercel/analytics/react';
+
 // import AuthState from "./Context/authentication_/AuthState";
 
 function App() {
@@ -55,6 +56,7 @@ function App() {
           backgroundColor={`${mode === 'Dark' ? 'white' : 'black'}`} progress={progress}
         />
         <Navbar mode={mode} toggleMode={toggleMode} setProgress={setProgress} />
+        <Analytics/>
         <Routes>
           <Route exact index element={<Home mode={mode} setProgress={setProgress} />} />
           <Route exact path="/" element={<Home setProgress={setProgress} mode={mode} toggleMode={toggleMode} />}></Route>

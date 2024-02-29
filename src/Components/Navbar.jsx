@@ -42,26 +42,18 @@ const Navbar = (props) => {
     } else {
       props.setProgress(100);
       navigate("/connect");
+      window.scrollTo(0,0)
     }
   };
-  // const contact = (e) => {
-  //   e.preventDefault();
-  //   props.setProgress(0);
-  //   if (!localStorage.getItem("token")) {
-  //     navigate("/login");
-  //     props.setProgress(100);
-  //     toast("Please login to continue", "warning", {
-  //       style: {
-  //         borderRadius: "10px",
-  //         background: `${props.mode === "Dark" ? "#fff" : "#333"}`,
-  //         color: `${props.mode === "Dark" ? "#333" : "#fff"}`,
-  //       },
-  //     });
-  //   } else {
-  //     props.setProgress(100);
-  //     navigate("/contact");
-  //   }
-  // };
+
+  const contact=()=>{
+    navigate("/contact")
+    window.scrollTo(0,0)
+  }
+  const services=()=>{
+    navigate("/contact")
+    window.scrollTo(0,0)
+  }
 
   return (
     <>
@@ -88,7 +80,6 @@ const Navbar = (props) => {
               Nitin kumar
             </span>
           </Link>
-
           <button
             className={`navbar-toggler border border-${
               props.mode === "Light" ? "dark" : "light"
@@ -135,6 +126,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
+                onClick={services}
                   className={`mx-1 nav-link ${
                     location.pathname === "/services"
                       ? "text-decoration-underline"
@@ -149,7 +141,7 @@ const Navbar = (props) => {
               </li>
               <li className="nav-item">
                 <Link
-                  // onClick={contact}
+                  onClick={contact}
                   className={`mx-1 nav-link ${
                     location.pathname === "/contact"
                       ? "text-decoration-underline"

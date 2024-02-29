@@ -16,8 +16,8 @@ const UserProfile = (props) => {
   const ref = useRef(null);
   const refClose = useRef(null);
   
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [loading, setLoading] = useState(false);
 

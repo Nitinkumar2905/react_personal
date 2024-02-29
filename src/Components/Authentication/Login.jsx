@@ -5,8 +5,8 @@ import { toast } from "react-hot-toast";
 import loadingIcon from "../images/loadingt.gif";
 
 const Login = (props) => {
-  // const host = "https://nitinkumar-backend.vercel.app";
-  const host = "http://localhost:8000";
+  const host = "https://nitinkumar-backend.vercel.app";
+  // const host = "http://localhost:8000";
   const token = localStorage.getItem("token");
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();

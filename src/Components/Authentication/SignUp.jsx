@@ -1,8 +1,9 @@
 import { useNavigate } from "react-router-dom";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "../styles/SignUp.css";
 import { toast } from "react-hot-toast";
 import loadingIcon from "../images/loadingt.gif";
+import { FaEye } from "react-icons/fa";
 
 const SignUp = (props) => {
   const navigate = useNavigate();
@@ -17,6 +18,17 @@ const SignUp = (props) => {
   const [isLoading, setIsLoading] = useState(false);
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+  const [passwordType, setPasswordType] = useState("password");
+  const toggleRef = useRef();
+
+  const togglePasswordType = () => {
+    toggleRef.current.click();
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else {
+      setPasswordType("password");
+    }
   };
   const handleSignUp = async (e) => {
     e.preventDefault();
@@ -73,7 +85,7 @@ const SignUp = (props) => {
         });
       }
     } else {
-      setIsLoading(false)
+      setIsLoading(false);
       toast.error("Password conflict!", {
         style: {
           borderRadius: "10px",
@@ -135,21 +147,29 @@ const SignUp = (props) => {
               </div>
               <div className={`SignUp-item`}>
                 <label htmlFor="password">Set Password:</label>
-                <input
-                  className={`text-${
+                <div
+                  className={`d-flex justify-items-between text-${
                     props.mode === "Dark" ? "light" : "dark"
                   } border rounded border-${
                     props.mode === "Dark" ? "light" : "dark"
                   }  p-2`}
-                  required
-                  value={credentials.password}
-                  onChange={onChange}
-                  minLength={8}
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password (atleast 8 characters)"
-                />
+                >
+                  <input
+                    required
+                    value={credentials.password}
+                    onChange={onChange}
+                    ref={toggleRef}
+                    minLength={8}
+                    type={passwordType}
+                    name="password"
+                    id="password"
+                    placeholder="Password (atleast 8 characters)"
+                  />
+                  <FaEye
+                    style={{ cursor: "pointer" }}
+                    onClick={togglePasswordType}
+                  ></FaEye>
+                </div>
               </div>
               <div className={`SignUp-item`}>
                 <label htmlFor="cpassword">Confirm Password:</label>
@@ -186,9 +206,12 @@ const SignUp = (props) => {
           </div>
         </div>
       ) : (
-        <div className="d-flex justify-content-center" style={{height:'76vh'}}>
+        <div
+          className="d-flex justify-content-center"
+          style={{ height: "76vh" }}
+        >
           <img
-          className="m-auto"
+            className="m-auto"
             src={loadingIcon}
             style={{ height: "3rem", width: "3rem" }}
             alt=""

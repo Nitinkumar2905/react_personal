@@ -31,6 +31,13 @@
   margin: 0.5rem auto;
 }
 
+.SignUp-item > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 .SignUp-item input {
   margin-top: 0.5rem;
   width: 100%;

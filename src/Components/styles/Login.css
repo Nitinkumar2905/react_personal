@@ -31,8 +31,15 @@
   margin: 1rem auto;
 }
 
+.login-item > div {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .login-item input {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   width: 100%;
   background-color: inherit;
   outline: none;

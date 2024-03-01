@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "../styles/Login.css";
 import { toast } from "react-hot-toast";
 import loadingIcon from "../images/loadingt.gif";
+import { FaEye } from "react-icons/fa";
 
 const Login = (props) => {
   const host = "https://nitinkumar-backend.vercel.app";
@@ -11,6 +12,17 @@ const Login = (props) => {
   const [credentials, setCredentials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
+  const [passwordType, setPasswordType] = useState("password");
+  const toggleRef = useRef();
+
+  const togglePasswordType = () => {
+    toggleRef.current.click();
+    if (passwordType === "password") {
+      setPasswordType("text");
+    } else {
+      setPasswordType("password");
+    }
+  };
 
   const handleLogin = async (e) => {
     setIsLoading(true);
@@ -94,21 +106,29 @@ const Login = (props) => {
               </div>
               <div className={`login-item`}>
                 <label htmlFor="password">Password:</label>
-                <input
-                  className={`text-${
+                <div
+                  className={`d-flex justify-items-between text-${
                     props.mode === "Dark" ? "light" : "dark"
                   } border rounded border-${
                     props.mode === "Dark" ? "light" : "dark"
                   }  p-2`}
-                  required
-                  value={credentials.password}
-                  onChange={onChange}
-                  minLength={8}
-                  type="password"
-                  name="password"
-                  id="password"
-                  placeholder="Password (atleast 8 characters)"
-                />
+                >
+                  <input
+                    required
+                    value={credentials.password}
+                    onChange={onChange}
+                    ref={toggleRef}
+                    minLength={8}
+                    type={passwordType}
+                    name="password"
+                    id="password"
+                    placeholder="Password (atleast 8 characters)"
+                  />
+                  <FaEye
+                    style={{ cursor: "pointer" }}
+                    onClick={togglePasswordType}
+                  ></FaEye>
+                </div>
                 <small className="text-start mt-2 ps-2">
                   We will never share your credentials with anyone else
                 </small>

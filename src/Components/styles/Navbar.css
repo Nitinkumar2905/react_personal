@@ -20,7 +20,7 @@ img {
   background-color: rgb(17 24 39);
   top: 0rem;
   z-index: 100;
-  padding: 0.8rem;
+  padding: 0.6rem;
 }
 
 @media (max-width: 991px) {
